@@ -6,6 +6,13 @@
 This extension extracts the **session ID** of the currently logged-in user from the browser's cookie and uses it to invoke **Salesforce REST APIs**. Notably, the tool does **not** handle the authentication process itself.
 
 ---
+## 📸 Screenshots
+![WelcomePage](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/WelcomePage.jpg?raw=true)
+ ![Case Commments](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/CaseComments.jpg?raw=true)
+ ![Customer Comments](https://github.com/srijitpatra99/Memory-Game/blob/main/Screenshot%202025-02-22%20220538.png?raw=true)
+ ![Notification](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/Notification.jpg?raw=true)
+ ![CaseReassignment](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/CaseReassignment.jpg?raw=true)
+ 
 ## Features & Tools
 
 ### 🚀 **Modularized Approach**
@@ -62,11 +69,6 @@ The extension operates with two **Auth Contexts**:
 ### 💬 **Customer Comment Tool**
 - Monitors **customer comments** on cases.
 - Highlights comments if **SLA is not met**.
-
-### ✅ **Closure Comments Tool**
-- Identifies cases **eligible for closure**.
-- Generates **automated closure templates**.
-- **Redistributes closure cases** for equal opportunities within the team.
 
 ### 📌 **Easy GHO (Global Handover)**
 - Generates **GHO template messages**.
