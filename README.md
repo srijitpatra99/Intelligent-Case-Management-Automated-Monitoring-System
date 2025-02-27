@@ -1,4 +1,4 @@
-# Prom Master
+# Intelligent Case Management & Automated Monitoring System(Prom-Master)
 
 ## Overview
 **Prom Master** is a Chrome extension developed for the **Proactive Monitoring (ProM) Team** to enhance productivity, automate manual processes, and provide useful tools for **Technical Engineers (TEs)**.
