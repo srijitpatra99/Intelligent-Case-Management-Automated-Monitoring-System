@@ -9,7 +9,7 @@ This extension extracts the **session ID** of the currently logged-in user from 
 ## 📸 Screenshots
 ![WelcomePage](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/WelcomePage.jpg?raw=true)
  ![Case Commments](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/CaseComments.jpg?raw=true)
- ![Customer Comments](https://github.com/srijitpatra99/Memory-Game/blob/main/Screenshot%202025-02-22%20220538.png?raw=true)
+ ![Customer Comments](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/CustomerComments.jpg?raw=true)
  ![Notification](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/Notification.jpg?raw=true)
  ![CaseReassignment](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/CaseReassignment.jpg?raw=true)
  
