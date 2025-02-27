@@ -13,7 +13,7 @@ This extension extracts the **session ID** of the currently logged-in user from 
  ![Notification](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/Notification.jpg?raw=true)
  ![CaseReassignment](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/CaseReassignment.jpg?raw=true)
  ![Deployment](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/Deployment.jpg?raw=true)
- 
+ ![GHO](https://github.com/srijitpatra99/Prom-Master/blob/main/Screens/GHOPage.jpg?raw=true)
 ## Features & Tools
 
 ### 🚀 **Modularized Approach**
