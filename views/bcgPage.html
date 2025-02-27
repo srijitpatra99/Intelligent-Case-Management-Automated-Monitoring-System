@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master</title>
+    <script src="/lib/jsforce.js"></script>
+    <script src="/lib/jquery.js"></script>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./css/slds/assets/styles/salesforce-lightning-design-system.css"
+    />
+    <style>
+      .sub-header {
+        font-size: large !important;
+      }
+
+      #caseNum {
+        color: blue;
+      }
+
+      .card {
+        text-align: center;
+        margin: 20px 10px;
+        border: 1px solid #d8dde6;
+        border-radius: 6px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      #card1,
+      #card2,
+      #card3,
+      #card4, 
+	    #card5{
+        max-width: 300px;
+      }
+
+      .number {
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+      html {
+        background-color: #eaf6ff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <h1 class="mt-4">Notifications</h1>
+
+      <div class="card" id="card1">
+        <div class="card-body">
+          <h3 class="h6 mt-1"><b>New Cases </b></h3>
+          <div class="slds">
+            <div class="slds-grid slds-wrap" id="new-cases"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="card2">
+        <div class="card-body">
+          <h3 class="h6 mt-1"><b>New Alerts </b></h3>
+          <div class="slds">
+            <div class="slds-grid slds-wrap" id="new-alerts"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="card3">
+        <div class="card-body">
+          <h3 class="h6 mt-1"><b>ReOpened Cases </b></h3>
+          <div class="slds">
+            <div class="slds-grid slds-wrap" id="reopenedCases"></div>
+          </div>
+        </div>
+      </div>
+    
+      
+
+      <div class="card" id="card4">
+        <div class="card-body">
+          <h3 class="h6 mt-1"><b>New Customer Comments </b></h3>
+          <div class="slds">
+            <div class="slds-grid slds-wrap" id="new-customer-comments"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="card4">
+        <div class="card-body">
+          <h3 class="h6 mt-1"><b>Deployments </b></h3>
+          <div class="slds">
+            <div class="slds-grid slds-wrap" id="deployments"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="/controllers/bcgScript.js"></script>
+</html>

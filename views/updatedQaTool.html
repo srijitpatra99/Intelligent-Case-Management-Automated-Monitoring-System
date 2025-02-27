@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>ProM Master 2.0</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+  <style>
+    #data-entry-section {
+      font-size: small !important;
+    }
+
+    #data-entry-section label {
+      font-size: medium !important;
+      font-weight: bolder !important;
+    }
+
+    .no-scroll {
+      overflow: hidden;
+    }
+
+    .slds-box {
+      height: auto;
+      background-color: #e3f2fd;
+      margin: 1rem 0rem;
+      margin-left: 0.5rem;
+    }
+
+    .slds-box h1 {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    tr.highlight {
+      background-color: #212529;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-end bs-gray-900" id="sidebar-wrapper">
+      <div class="sidebar-heading bs-gray-900">
+        ProM
+        <b>Master 2.0</b>
+      </div>
+      <div class="list-group list-group-flush">
+        <!-- Productivity Tools -->
+        <p class="sidebar-header">Productivity Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="alertChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/check_60.png" />
+          Alert Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casecomments.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/announcement_60.png" />
+          Case Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="customercomment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/flow_60.png" />
+          Customer Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="closure.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/close.svg" />
+          Closure Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="gho.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/answer_best_60.png" />
+          Easy GHO
+        </a>
+        <!-- MDE Tools -->
+        <p class="sidebar-header">MDE Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="crtool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/change_owner.svg" />
+          Case Reassignment Tool
+        </a>
+
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deployment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/fallback_60.png" />
+          Deployment Monitoring
+        </a>
+
+        <!-- Added by Sandeep for WI-02 -->
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casehandover.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/announcement_60.png" />
+          Case handover
+        </a>
+        <p class="sidebar-header">Special Access Tools</p>
+        <!-- <a class="list-group-item list-group-item-action list-group-item-light p-1" href="qatool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/clone_60.png" />
+          ProQA Tool
+        </a> -->
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="UpdatedQaTool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/survey_60.png" />
+          ProQA Tool 
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="OrgErrorChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/call.svg" />
+          Voice Call Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="misses.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Misses
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deploymentPC.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Deployment PC
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="orgIdValidator.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/priority.svg" />
+          Org Id Validator
+        </a>
+        <!-- <a
+            class="list-group-item list-group-item-action list-group-item-light p-1"
+            href="ccamTool.html"
+          >
+            <img src="./css/slds/assets/icons/action/info_60.png" />
+            ProCAM Tool
+          </a> -->
+        <!-- User Settings -->
+        <p class="sidebar-header">Personalization</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="settings.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/settings.svg" />
+          User Settings
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1"
+          href="https://docs.google.com/spreadsheets/d/1UCbLPbwimyvmRK_CTrFhAQacapppegfiQwp00qf6Itw/edit#gid=0"
+          target="”_blank”">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/reply.svg" />
+          Feedback form
+        </a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Top navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bs-gray-900 border-bottom ">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item active shift-container">
+                <span id="logged-in-status-dot" class="dot"></span>
+                <p id="current-shift" class="nav-link sub-header"></p>
+              </li>
+              <li class="nav-item active shift-container">
+                <a class="nav-link sub-header" href="popup.html">Home</a>
+              </li>
+              <li class="nav-item shift-container">
+                <a class="nav-link" href="settings.html">
+                  <p id="user-name"></p>
+                </a>
+              </li>
+              <li class="nav-item shift-container">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                  <img class="profile-pic" alt="Person name" id="profile-pic" title="Person name" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content-->
+      <div class="container-fluid">
+        <h1 class="slds-m-top_medium mt-4 mx-2">ProQA 2.2</h1>
+        <h2 class="sub-header slds-m-top_medium mt-4 mx-2">
+          For technical guide on how to use this tool, please follow this
+          <a href="https://salesforce.quip.com/DKiyAmqepucy" target="_blank"><b>Quip</b></a>
+        </h2>
+        <div id="qa-team-view" class="mt-4 mx-2">
+          <h6 class="sub-header">
+            Prior to using this tool, please correctly update your profile by
+            visiting
+            <a href="settings.html">Settings</a>
+            page
+          </h6>
+          <div class="sub-header mt-4">
+            <h6>
+              Welcome to the automated QA Analysis Tool for ProM 
+            </h6>
+          </div>
+          <!-- Data entry section -->
+          <div id="data-entry-section" class="slds-grid slds-wrap">
+            <div class="slds-col slds-form-element">
+              <div class="slds-box">
+                <label class="slds-form-element__label" for="te-select">Enter Case number(s)</label>
+                <input type="text" class="form-control" id="case-number" name="case-number"
+                  placeholder="Leave this blank if you want to perform a general audit for all cases" />
+              </div>
+            </div>
+            <div class="slds-col slds-form-element">
+              <div class="slds-box">
+                <h1><b>OR</b></h1>
+              </div>
+            </div>
+            <div class="slds-col">
+              <div class="slds-box">
+                <div class="slds-form-element slds-m-top_small">
+                  <label class="slds-form-element__label" for="case-limit">Select no. of cases to audit (default:
+                    5)</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select class="slds-select" id="case-limit">
+                        <option value="">Choose a Value</option>
+                        <option value="2">2</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-form-element slds-m-top_small">
+                  <label class="slds-form-element__label" for="alert-select">Select an alert type</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select class="slds-select" id="alert-select">
+                        <option value="">
+                          Leave this blank if you want to perform a general
+                          audit for all alerts
+                        </option>
+                        <option value="a6BHx000000001dMAA">
+                          Apex CPU Timeout Exceptions
+                        </option>
+                        <option value="a6BHx00000000pdMAA">
+                          Apex Future Dequeue Latency
+                        </option>
+                        <option value="a6BHx00000000o1MAA">
+                          Apex Future Performance
+                        </option>
+                        <option value="a6BHx000000001eMAA">
+                          Apex Queueable Dequeue Latency
+                        </option>
+                        <option value="a6BHx000000001fMAA">
+                          Apex Queueable Performance
+                        </option>
+                        <option value="a6BHx000000001gMAA">
+                          Api Request Limit
+                        </option>
+                        <option value="a6BHx000000001hMAA">
+                          Async Apex Execution Limit
+                        </option>
+                        <option value="a6BHx000000001iMAA">
+                          Asynchronous Callout Failures
+                        </option>
+                        <option value="a6BHx000000001jMAA">
+                          Average Synchronous Callout Time
+                        </option>
+                        <option value="a6BHx000000001mMAA">
+                          Bulk API Batch Limit
+                        </option>
+                        <option value="a6BHx000000001nMAA">
+                          Bulk API Performance
+                        </option>
+                        <option value="a6BHx000000001qMAA">
+                          Concurrent Apex Errors
+                        </option>
+                        <option value="a6BHx000000001rMAA">
+                          Concurrent API Requests
+                        </option>
+                        <option value="a6BHx000000001sMAA">
+                          Concurrent UI Errors
+                        </option>
+                        <option value="a6BHx000000001tMAA">
+                          Connection Pool Errors
+                        </option>
+                        <option value="a6BHx000000001uMAA">
+                          Daily Content Version Limit
+                        </option>
+                        <option value="a6BHx000000001vMAA">
+                          Daily Mass Mail Limit
+                        </option>
+                        <option value="a6BHx00000001icMAA">
+                          Daily Platform Events Delivery Limit
+                        </option>
+                        <option value="a6BHx000000001wMAA">
+                          Daily Single Email Limit
+                        </option>
+                        <option value="a6BHx000000003FMAQ">
+                          Daily Workflow Emails
+                        </option>
+                        <option value="a6BHx00000000rFMAQ">
+                          Dashboard Performance
+                        </option>
+                        <option value="a6BHx000000003HMAQ">
+                          Database CPU Consumption Time
+                        </option>
+                        <option value="a6BHx000000003IMAQ">
+                          Durable Streaming API limit
+                        </option>
+                        <option value="a6BHx000000003JMAQ">
+                          Experienced Page Time (EPT)
+                        </option>
+                        <option value="a6BHx000000003KMAQ">
+                          Hourly OData XDS Callout limit
+                        </option>
+                        <option value="a6BHx00000001idMAA">
+                          Hourly Platform Events Publishing Limit
+                        </option>
+                        <option value="a6BHx000000003LMAQ">
+                          Hourly Timebased Workflow Limit
+                        </option>
+                        <option value="a6BHx000000003MMAQ">
+                          Login Failures
+                        </option>
+                        <option value="a6BHx000000003NMAQ">
+                          Login Success Rate
+                        </option>
+                        <option value="a6BHx000000003OMAQ">
+                          Login Success Volume
+                        </option>
+                        <option value="a6BHx000000003PMAQ">
+                          Max Content (File) Limit
+                        </option>
+                        <option value="a6BHx000000040PMAQ">
+                          MQ Longest Wait Time
+                        </option>
+                        <option value="a6BHx000000003QMAQ">
+                          Org Average Page Time (APT)
+                        </option>
+                        <option value="a6BHx000000003RMAQ">
+                          Org Request Rate - Drop
+                        </option>
+                        <option value="a6BHx000000003SMAQ">
+                          Org Request Rate - Spike
+                        </option>
+                        <option value="a6BHx000000003WMAQ">
+                          Platform Events Latency
+                        </option>
+                        <option value="a6BHx000000040QMAQ">
+                          Platform Events Dequeue Latency
+                        </option>
+                        <option value="a6BHx000000003VMAQ">
+                          Search Indexing Delay
+                        </option>
+                        <option value="a6BHx000000003XMAQ">
+                          Streaming API Limit
+                        </option>
+                        <option value="a6BHx000000003YMAQ">
+                          Synchronous Callout Failures
+                        </option>
+                        <option value="a6BHx000000003TMAQ">
+                          Rowlock Timeout Errors
+                        </option>
+                        <option value="a6BHx000000004rMAA">
+                          Web-to-X Request Limit
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="slds-form-element slds-m-top_small">
+                  <label class="slds-form-element__label" for="te-select">Select a TE</label>
+                  <div class="slds-form-element__control">
+                      <div class="slds-select_container">
+                          <select class="slds-select" id="te-select">
+                              <option value="">Leave this blank if you want to perform a general audit for all TEs</option>
+                          </select>
+                      </div>
+                  </div>
+                </div> -->
+              
+                <div class="slds-form-element slds-m-top_small">
+                  <label class="slds-form-element__label" for="te-select">Select a TE</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select class="slds-select" id="te-select">
+                        <option value="">
+                          Leave this blank if you want to perform a general
+                          audit for all TEs
+                        </option>
+                        <option value="005Hx000006VQE5IAO">Aakash Padole</option>
+                        <option value="005Hx000001L3ITIA0">Aathmacharan Selvasudarsanan</option>
+                        <option value="005Hx000006iJujIAE">Abhinav Pentakota</option>
+                        <option value="005Hx000006WzphIAC">Abhisek Pattanayak</option>
+                        <option value="005Hx000006TvHCIA0">Alakananda Mahapatra</option>
+                        <option value="005Hx000006i4fZIAQ">Anand Pinnamaneni</option>
+                        <option value="005Hx000000EEpVIAW">Ananya Mishra</option>
+                        <option value="0053y00000GL7mAAAT">Ankit Kapoor</option>
+                        <option value="005Hx000006VlNNIA0">Anshuman Dalai</option>
+                        <option value="005Hx000006dOVGIA2">Anthon Rodrigues</option>
+                        <option value="005Hx000009qmZdIAI">Anurag Mhatre</option>
+                        <option value="005Hx000000EEzBIAW">Anusha Avula</option>
+                        <option value="005Hx000009qnPFIAY">Anvidha Dharmini</option>
+                        <option value="005Hx000006VjdJIAS">Appana Vineeth</option>
+                        <option value="005Hx000006cdWLIAY">AravindSamy Selvaraj</option>
+                        <option value="005Hx000009qtBJIAY">Arijit Datta</option>
+                        <option value="005Hx000009qmY1IAI">Arun Gorantla</option>
+                        <option value="005Hx000006dT0HIAU">Aryan Tiwari</option>
+                        <option value="005Hx000006cdT7IAI">Balaji Lakshmanan</option>
+                        <option value="005Hx000000BAIbIAO">Bharadwaja Awunoori</option>
+                        <option value="005Hx000005jSwXIAU">Bidhan Paul</option>
+                        <option value="005Hx000000EBjbIAG">Borgala Vikas</option>
+                        <option value="005Hx000006iArRIAU">Chinmai Mani Subhashini Janapati</option>
+                        <option value="005Hx000006ZQ2bIAG">Chinmayi. G</option>
+                        <option value="005Hx000009qmUnIAI">Faiza Tabassum</option>
+                        <option value="005Hx000006iK4PIAU">Falguni Sarkar</option>
+                        <option value="005Hx000006YOu5IAG">Gayathri Lakshmi Jetti</option>
+                        <option value="005Hx000006iH4wIAE">Gowrisri Jami</option>
+                        <option value="005Hx000006iJrVIAU">Harika Srimayi Goli</option>
+                        <option value="005Hx000006VjDVIA0">Haripriya Pally</option>
+                        <option value="005Hx000001L3qLIAS">Harshita Sharma</option>
+                        <option value="005Hx000009r0CnIAI">Himaanshu Vasantham</option>
+                        <option value="005Hx000006TyoXIAS">Hritwik Som</option>
+                        <option value="005Hx000006i6W5IAI">Hrudya Phaniharam</option>
+                        <option value="005Hx000006lEthIAE">I.S Harshitha Yadav</option>
+                        <option value="005Hx000000EBexIAG">Jagadeesh Reddy Mandipalli</option>
+                        <option value="005Hx00000668CLIAY">Jasmine Virdi</option>
+                        <option value="005Hx000006iJt7IAE">Jatin Aggarwal</option>
+                        <option value="005Hx000000EEsjIAG">Jyothi Moravapalli</option>
+                        <option value="005Hx000000EBjhIAG">Jyothsna Jeereddy</option>
+                        <option value="005Hx000009qjOrIAI">K M Gaviprasad</option>
+                        <option value="005Hx000006i4UHIAY">Karthik Mikkilineni</option>
+                        <option value="005Hx000009r0EPIAY">Keerthana Siripurapu</option>
+                        <option value="005Hx000006TwpxIAC">Kumar Pratyush</option>
+                        <option value="005Hx000009qmeTIAQ">Lakshmi Keerthana Siliveru</option>
+                        <option value="005Hx000009qjVJIAY">Lakshmi Prasanna Panthangi</option>
+                        <option value="005Hx000001r1evIAA">Lalit Kumar Malik</option>
+                        <option value="005Hx000006j5o5IAA">Leela Tejaswini Nannapaneni</option>
+                        <option value="005Hx000006iK1BIAU">Likitha Sangapu</option>
+                        <option value="005Hx000006bpcnIAA">Lokesh Kulangaramadom Ramdas</option>
+                        <option value="005Hx000009qtG9IAI">Manikanta Pradeep Adupa</option>
+                        <option value="005Hx000009qtCvIAI">Meghana Julakanti</option>
+                        <option value="005Hx000006lEqTIAU">Mohammed Abdul Moqeet</option>
+                        <option value="005Hx000006iIvSIAU">Mohammed Basha Shaik</option>
+                        <option value="005Hx000009qjS5IAI">Munigala Vaishnavi</option>
+                        <option value="005Hx000006W9eEIAS">Naga Yasaswini D S</option>
+                        <option value="005Hx000000EBetIAG">Nida Afzal</option>
+                        <option value="005Hx000006WAlaIAG">Nikhitha Kokkalakonda</option>
+                        <option value="005Hx000005xCKdIAM">Nilesh Kumar Raut</option>
+                        <option value="005Hx000000CVZVIA4">Niraj Taori</option>
+                        <option value="005Hx000009qmcrIAA">Nishitha Mittapally</option>
+                        <option value="005Hx000009qsLhIAI">P Sanjana Reddy</option>
+                        <option value="005Hx000009qsK5IAI">Patnam Akshitha Aishwarya</option>
+                        <option value="005Hx000008JwjeIAC">Prakhar Srivastav</option>
+                        <option value="005Hx000006eCS1IAM">Pranav Jore</option>
+                        <option value="005Hx000000EBi9IAG">Prasanna A</option>
+                        <option value="005Hx000000EBi5IAG">Pratingya Praharaj</option>
+                        <option value="005Hx000006iJptIAE">Pratyaksh Bharadwaj</option>
+                        <option value="005Hx0000086y6YIAQ">Priyanka C Bentur</option>
+                        <option value="005Hx000006lnEjIAI">Raghav Somani</option>
+                        <option value="005Hx000006kw3xIAA">Rahul Devender Sharma</option>
+                        <option value="005Hx000006bq0zIAA">Raj Kumar Rawat</option>
+                        <option value="005Hx000000EB8UIAW">Raja Ravi Kiran Balakulla</option>
+                        <option value="005Hx000001e2QjIAI">Ramaraju Alluri</option>
+                        <option value="005Hx0000067KRZIA2">Rambabu M</option>
+                        <option value="005Hx0000063MrlIAE">Rasi Dwarakacherla</option>
+                        <option value="005Hx000006WBJRIA4">Ratna Sri Kandula</option>
+                        <option value="005Hx000006jmRdIAI">Sachindra Kumar</option>
+                        <option value="005Hx000006iHEbIAM">Sahithi Gambhirao</option>
+                        <option value="005Hx000006iJoHIAU">Sai Keerthi Gorle</option>
+                        <option value="005Hx000006W8QQIA0">Sai Tarun Reddy Nallavalli</option>
+                        <option value="005Hx000006i4SfIAI">Sai Vivek Velineni</option>
+                        <option value="005Hx000000EBlJIAW">Saikat Mazumdar</option>
+                        <option value="005Hx000000EC34IAG">Saket Kumar</option>
+                        <option value="005Hx000006WBzNIAW">Sakthivel R</option>
+                        <option value="005Hx000006ZN1VIAW">Sandeep . (ProM)</option>
+                        <option value="005Hx000009qmg5IAA">Sarah Rizwan</option>
+                        <option value="005Hx000000EBiAIAW">Saurav Roy</option>
+                        <option value="005Hx000006VlOzIAK">Shaista Fatima</option>
+                        <option value="005Hx000000EEntIAG">Sharath Babu Kanukuntla</option>
+                        <option value="005Hx000009qmTBIAY">Shivam Sarma Roy</option>
+                        <option value="005Hx000006bl4XIAQ">Shreya Loni</option>
+                        <option value="005Hx000006VlTpIAK">Sindhu Chevakula</option>
+                        <option value="005Hx000009qjIPIAY">Soumili Dutta</option>
+                        <option value="005Hx000009qsITIAY">Soutik Dey</option>
+                        <option value="005Hx000009qjNFIAY">Sowmya Sri Nalluri</option>
+                        <option value="005Hx000001PMSzIAO">Sravanthi Jilla</option>
+                        <option value="005Hx000009r0BBIAY">Sreeja Reddy Gondi</option>
+                        <option value="005Hx000009qtEXIAY">Sreetama Ghosh Hazra</option>
+                        <option value="005Hx000006VkBBIA0">Srijit Patra</option>
+                        <option value="005Hx000008JtfJIAS">Sriteja Mirdoddi</option>
+                        <option value="005Hx000006iK2nIAE">Srujana Seetha</option>
+                        <option value="005Hx000008NM1dIAG">Subhadra Devi Chillapalli</option>
+                        <option value="005Hx000000EB8VIAW">Sudip Dasgupta</option>
+                        <option value="005Hx000006bobtIAA">Sufiyan Kallur</option>
+                        <option value="005Hx000006lpbVIAQ">Sugata Ghosh</option>
+                        <option value="005Hx000000EBerIAG">Sumanth Sura</option>
+                        <option value="005Hx000000EB8WIAW">Sunil Singh</option>
+                        <option value="005Hx000008pPxRIAU">Suraj Gopinath Garla</option>
+                        <option value="005Hx0000027A9ZIAU">Suraj Kumar Harichandan</option>
+                        <option value="005Hx000000EBi8IAG">Surbhi Surbhi</option>
+                        <option value="005Hx000006i4hBIAQ">Surya Vamsi Patnala</option>
+                        <option value="005Hx000009qjK1IAI">Swathi Gollapalli</option>
+                        <option value="005Hx000000EBeuIAG">Swetpadma Supakar</option>
+                        <option value="005Hx000001L3vBIAS">Syed Md Khaseem Ali Khadri</option>
+                        <option value="005Hx000006cegvIAA">Tushar Sonwane</option>
+                        <option value="005Hx000006bojxIAA">Udipt Kumar Srivastava</option>
+                        <option value="005Hx000006lEnFIAU">Utpal Kumar</option>
+                        <option value="005Hx000009qjThIAI">Vaibhav Agrawal</option>
+                        <option value="005Hx000006i4inIAA">Vaishnavi Tanmayee Sivaraju</option>
+                        <option value="005Hx000000ETgTIAW">Varun Kumar Yerraguntla</option>
+                        <option value="005Hx000000EBjdIAG">Venkata Praveen Kumar Muvvala</option>
+                        <option value="005Hx000006iBdpIAE">Vinayak Nagar</option>
+                        <option value="005Hx000009r06LIAQ">Vivek Sharma</option>
+                        <option value="005Hx000006lEs5IAE">Vyshnavi Pochampally</option>
+                        <option value="005Hx000001ZsRaIAK">Yashvant Agam</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary mt-4" id="fetch-qa-cases-btn">
+            Fetch Cases for QA
+          </button>
+          <button type="button" class="btn btn-primary mt-4" id="start-qa-btn">
+            Start QA (Bulk)
+          </button>
+          <button type="button" class="btn btn-success mt-4 ml-2" id="mark-all-done-btn">
+            Mark all as Done
+          </button>
+          <button type="button" class="btn btn-danger mt-4" id="clear-btn">
+            Clear
+          </button>
+          <div id="cc-table">
+            <h1>Closed Cases</h1>
+            <table id="closed-cases-table" class="table">
+              <thead>
+                <tr>
+                  <th>Case Number</th>
+                  <th>Product Feature</th>
+                  <th>Created Date</th>
+                  <th>Closed Date</th>
+                  <th>Owner</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="qa-table">
+            <h1>Quality Analysis Results</h1>
+            <button type="button" class="btn btn-primary my-3" id="view-case-main-btn">
+              View Case
+            </button>
+            <!-- <button type="button" class="btn btn-primary my-3" id="view-case-desc-main-btn">
+              View Case Description
+            </button> -->
+            <button type="button" class="btn btn-primary my-3" id="copy-table-btn">
+              Copy Table Data
+            </button>
+            <!-- <button type="button" class="btn btn-primary my-3" id="download-log-btn">
+              Download Process Logs
+            </button> -->
+            <table id="qa-results-table" class="table">
+              <thead>
+                <tr>
+                  <th>Date/Time Opened</th>
+                  <th>Case Date/Time Closed</th>
+                  <th>Case Number</th>
+                  <th>Case Updated By</th>
+                  <th>Alert Name</th>
+                  <th>Org Id</th>
+                  <th>Subject</th>
+                  <th>Type of Case Update</th>
+                  <th>Additional information</th>
+                  <th>Internal Comment</th>
+                  <th>SLA met</th>
+                  <th>Case Status</th>
+                  <th>Alert Missed </th>
+                  <th>Customer Comment Missed </th>
+                  <th>QA Done By</th>
+                  <th>QA Done Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div id="non-qa-team-view" class="sub-header mt-4 mx-2">
+          <h6>
+            This tool is only accessible by ProM QA Team Members. If you want
+            to know more, please contact your geo manager.
+          </h6>
+          <p>
+            If you are a QA Team Member and still seeing this message, please
+            visit
+            <a href="settings.html">Settings</a>
+            page and update your role.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bulk spinner for the entire job -->
+<div id="my-bulk-spinner" style="display:none;">
+  <div id="bulk-stage-label"></div>
+  <!-- Your bulk spinner content here (e.g., a spinner image or animation) -->
+</div>
+  <div id="my-spinner" class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+    <h2 id="stage-label"></h2>
+    <h3 id="time-label"></h3>
+  </div>
+  <script src="../lib/jsforce.js"></script>
+  <script src="../controllers/updatedQaTool.js" type="module"></script>
+</body>
+
+</html>

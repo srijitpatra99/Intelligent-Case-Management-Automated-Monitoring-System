@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>ProM Master 2.0</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <!-- Import CSS for Closure Plugin-->
+  <link href="css/closure.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+  <style>
+    #noCases {
+      text-align: center;
+      font-size: 18px;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    #dvTable {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ddd;
+      /* Add a border around the table */
+    }
+
+    /* Style the table header (thead) */
+    #thId {
+      background-color: #f2f2f2;
+    }
+
+    /* Style the table header cells (th) */
+    #thId th {
+      padding: 8px;
+      text-align: left;
+      font-weight: bold;
+      border: 1px solid #ddd;
+      /* Add borders to header cells */
+    }
+
+    /* Style the table body cells (td) */
+    #tbId td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      /* Add borders to data cells */
+    }
+
+    /* Apply alternate row background color for better readability */
+    #tbId tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .custom-select {
+      display: flex;
+      flex-direction: row;
+      font-size: small !important;
+    }
+
+    .selectView {
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .custom-select select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: white;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      /* font-size: 15px; */
+      color: #333;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .custom-select::after {
+      content: '\25BC';
+      position: absolute;
+      top: 31%;
+      right: 30px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    /* Custom option styles */
+    .custom-select select option {
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 10px;
+    }
+
+    .allButtons {
+      display: flex;
+      justify-content: start;
+    }
+
+    .card {
+      background-color: #f1f1f1;
+      margin-bottom: 30px;
+    }
+
+    #myInput {
+      padding: 8px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #fff;
+      color: #333;
+    }
+
+    #myInput::placeholder {
+      color: #999;
+    }
+
+    #clear,
+    #getCases,
+    #reAssignClosure {
+      margin-top: 12px;
+      color: white;
+      padding: 10px;
+      font-size: 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 2px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-end bs-gray-900" id="sidebar-wrapper">
+      <div class="sidebar-heading bs-gray-900">
+        ProM
+        <b>Master 2.0</b>
+      </div>
+      <div class="list-group list-group-flush">
+        <!-- Productivity Tools -->
+        <p class="sidebar-header">Productivity Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="alertChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/check_60.png" />
+          Alert Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casecomments.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/announcement_60.png" />
+          Case Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="customercomment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/flow_60.png" />
+          Customer Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="closure.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/close.svg" />
+          Closure Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="gho.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/answer_best_60.png" />
+          Easy GHO
+        </a>
+        <!-- MDE Tools -->
+        <p class="sidebar-header">MDE Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="crtool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/change_owner.svg" />
+          Case Reassignment Tool
+        </a>
+
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deployment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/fallback_60.png" />
+          Deployment Monitoring
+        </a>
+
+        <!-- Added by Sandeep for WI-02 -->
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casehandover.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/announcement_60.png" />
+          Case handover
+        </a>
+        <p class="sidebar-header">Special Access Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="UpdatedQaTool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/survey_60.png" />
+          ProQA Tool 
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="OrgErrorChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/call.svg" />
+          Voice Call Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="misses.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Misses
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deploymentPC.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Deployment PC
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="orgIdValidator.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/priority.svg" />
+          Org Id Validator
+        </a>
+        <!-- <a
+            class="list-group-item list-group-item-action list-group-item-light p-1"
+            href="ccamTool.html"
+          >
+            <img src="./css/slds/assets/icons/action/info_60.png" />
+            ProCAM Tool
+          </a> -->
+        <!-- User Settings -->
+        <p class="sidebar-header">Personalization</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="settings.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/settings.svg" />
+          User Settings
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1"
+          href="https://docs.google.com/spreadsheets/d/1UCbLPbwimyvmRK_CTrFhAQacapppegfiQwp00qf6Itw/edit#gid=0"
+          target="”_blank”">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/reply.svg" />
+          Feedback form
+        </a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Top navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bs-gray-900 border-bottom ">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item active shift-container">
+                <span id="logged-in-status-dot" class="dot"></span>
+                <p id="current-shift" class="nav-link sub-header"></p>
+              </li>
+              <li class="nav-item active shift-container">
+                <a class="nav-link sub-header" href="popup.html">Home</a>
+              </li>
+              <li class="nav-item shift-container">
+                <a class="nav-link" href="settings.html">
+                  <p id="user-name"></p>
+                </a>
+              </li>
+              <li class="nav-item shift-container">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                  <img class="profile-pic" alt="Person name" id="profile-pic" title="Person name" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content-->
+      <div class="container-fluid">
+        <h1 class="mt-4">Closure Comments</h1>
+        <p class="mt-2">Check Number of Closure here</p>
+        <!-- Starting it here -->
+        <div id="non-qa-team-view" class="sub-header mt-2 mb-2">
+          <div class="card">
+            <div class="card-body">
+              <div class="custom-select">
+
+                <select id="getView">
+                  <option value="selectView">Select View</option>
+                  <option value="TEview">Technical Engineer view</option>
+                  <option value="MangerView">Manager View</option>
+
+                </select>
+              </div>
+              <div class="allButtons">
+                <div>
+                  <button class="btn btn-dark stylingButtons" id="getCases">Get Cases</button>
+
+                </div>
+                <div id="reAssignClosureDiv">
+                  <button class="btn btn-dark" id="reAssignClosure">Re-assign Closure</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="slds-notify_container slds-is-relative" id="toast" style="display: none;">
+          <div class="slds-notify slds-notify_toast slds-theme_success" id="statuses" role="status">
+            <span class="slds-assistive-text">success</span>
+            <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top"
+              title="Description of icon when needed">
+              <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                <use xlink:href="./css/slds/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+              </svg>
+            </span>
+            <div class="slds-notify__content">
+              <h2 id="errorMessage" class="slds-text-heading_small ">Account
+            </div>
+            <div class="slds-notify__close">
+              <button class="slds-button slds-button_icon slds-button_icon-inverse" id="close" title="Close">X
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="centered-text" id="noCases"></p>
+        </div>
+
+
+        <!-- Ending it here -->
+
+
+
+      </div>
+
+
+      <div class="container-fluid">
+
+
+        <div class="center">
+          <input id="myInput" type="text" placeholder="Search..">
+        </div>
+
+        <br>
+
+
+
+
+        <table id="dvTable">
+          <thead id="thId"></thead>
+          <tbody id="tbId"></tbody>
+        </table>
+
+
+        <div class="demo-only" id="spinnerClosure" style="display: none;">
+          <div class="slds-spinner_container">
+            <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+              <span class="slds-assistive-text">Loading</span>
+              <div class="slds-spinner__dot-a"></div>
+              <div class="slds-spinner__dot-b"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-only demo-only_viewport" style="height:6rem;position:relative;display:none" id="spinner2">
+        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+          <span class="slds-assistive-text">Processing..</span>
+          <div class="slds-spinner__dot-a"></div>
+          <div class="slds-spinner__dot-b"></div>
+        </div>
+      </div>
+
+      <div id="closureComments">
+        <div class="slds-box" style="margin: 10px;">
+
+          <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+
+              <h1>
+                <b style="font-size: medium; margin-left: 10px; font-weight: bold; margin-top: 10px;">Public Closure
+                  Comment</b>
+              </h1>
+
+              <textarea class="ta1" id="closureComment"></textarea>
+              <button class="slds-button slds-button_brand" style="background-color: black;" id="ccBtn">Post On
+                Case</button>
+
+            </div>
+            <div class="slds-col">
+
+              <h1>
+                <b style="font-size: medium; margin-left: 10px; font-weight: bold; margin-top: 10px;">Internal
+                  Comment</b>
+              </h1>
+
+
+              <textarea class="ta2" id="internalComment"></textarea>
+              <button class="slds-button slds-button_brand" style="background-color: black;" id="icBtn">Post On
+                Case</button>
+            </div>
+
+          </div>
+          <br>
+          <div id="errorDiv" class="slds-notify slds-notify_alert slds-alert_error" role="alert" style="display: none;">
+            <span class="slds-assistive-text">error</span>
+            <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small"
+              title="Description of icon when needed">
+              <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                <use xlink:href="./css/slds/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+              </svg>
+            </span>
+            <h2 id="errorMsg"></h2>
+            <div class="slds-notify__close">
+              <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse"
+                title="Close">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="./css/slds/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Close</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div id="my-spinner" class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+  <div class="slds-notify_container slds-is-relative" id="globalErrorDiv" style="display: none;">
+    <div class="slds-notify slds-notify_toast slds-theme_error" role="status">
+      <span class="slds-assistive-text">error</span>
+      <div class="slds-notify__content">
+        <h2 class="slds-text-heading_small" id="globalErrorMsg"></h2>
+      </div>
+    </div>
+  </div>
+  <script src="../lib/jsforce.js"></script>
+  <script src="../lib/jquery.min.js"></script>
+  <script src="../lib/search.js"></script>
+  <script src="../controllers/closure.js" type="module"></script>
+</body>
+
+</html>

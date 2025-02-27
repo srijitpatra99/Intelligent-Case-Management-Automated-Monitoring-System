@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>ProM Master 2.0</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+  <style>
+    #data-entry-section {
+      font-size: small !important;
+    }
+
+    #data-entry-section label {
+      font-size: medium !important;
+      font-weight: bolder !important;
+    }
+
+    .no-scroll {
+      overflow: hidden;
+    }
+
+    .slds-box {
+      height: auto;
+      background-color: #e3f2fd;
+      margin: 1rem 0rem;
+      margin-left: 0.5rem;
+    }
+
+    .slds-box h1 {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    tr.highlight {
+      background-color: #212529;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-end bs-gray-900" id="sidebar-wrapper">
+      <div class="sidebar-heading bs-gray-900">
+        ProM
+        <b>Master 2.0</b>
+      </div>
+      <div class="list-group list-group-flush">
+        <!-- Productivity Tools -->
+        <p class="sidebar-header">Productivity Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="alertChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/check_60.png" />
+          Alert Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casecomments.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/announcement_60.png" />
+          Case Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="customercomment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/flow_60.png" />
+          Customer Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="closure.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/close.svg" />
+          Closure Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="gho.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/answer_best_60.png" />
+          Easy GHO
+        </a>
+        <!-- MDE Tools -->
+        <p class="sidebar-header">MDE Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="crtool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/change_owner.svg" />
+          Case Reassignment Tool
+        </a>
+
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deployment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/fallback_60.png" />
+          Deployment Monitoring
+        </a>
+
+        <!-- Added by Sandeep for WI-02 -->
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casehandover.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/announcement_60.png" />
+          Case handover
+        </a>
+        <p class="sidebar-header">Special Access Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="UpdatedQaTool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/survey_60.png" />
+          ProQA Tool 
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="OrgErrorChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/call.svg" />
+          Voice Call Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="misses.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Misses
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deploymentPC.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Deployment PC
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="orgIdValidator.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/priority.svg" />
+          Org Id Validator
+        </a>
+        <!-- <a
+            class="list-group-item list-group-item-action list-group-item-light p-1"
+            href="ccamTool.html"
+          >
+            <img src="./css/slds/assets/icons/action/info_60.png" />
+            ProCAM Tool
+          </a> -->
+        <!-- User Settings -->
+        <p class="sidebar-header">Personalization</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="settings.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/settings.svg" />
+          User Settings
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1"
+          href="https://docs.google.com/spreadsheets/d/1UCbLPbwimyvmRK_CTrFhAQacapppegfiQwp00qf6Itw/edit#gid=0"
+          target="”_blank”">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/reply.svg" />
+          Feedback form
+        </a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Top navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bs-gray-900 border-bottom ">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item active shift-container">
+                <span id="logged-in-status-dot" class="dot"></span>
+                <p id="current-shift" class="nav-link sub-header"></p>
+              </li>
+              <li class="nav-item active shift-container">
+                <a class="nav-link sub-header" href="popup.html">Home</a>
+              </li>
+              <li class="nav-item shift-container">
+                <a class="nav-link" href="settings.html">
+                  <p id="user-name"></p>
+                </a>
+              </li>
+              <li class="nav-item shift-container">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                  <img class="profile-pic" alt="Person name" id="profile-pic" title="Person name" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content-->
+      <div class="container-fluid">
+        <h1 class="slds-m-top_medium mt-4 mx-2">ProQA 1.0</h1>
+        <h2 class="sub-header slds-m-top_medium mt-4 mx-2">
+          For technical guide on how to use this tool, please follow this
+          <a href="https://salesforce.quip.com/DKiyAmqepucy" target="_blank"><b>Quip</b></a>
+        </h2>
+        <div id="qa-team-view" class="mt-4 mx-2">
+          <h6 class="sub-header">
+            Prior to using this tool, please correctly update your profile by
+            visiting
+            <a href="settings.html">Settings</a>
+            page
+          </h6>
+          <div class="sub-header mt-4">
+            <h6>Welcome to the automated QA Analysis Tool for ProM</h6>
+          </div>
+          <!-- Data entry section -->
+          <div id="data-entry-section" class="slds-grid slds-wrap">
+            <div class="slds-col slds-form-element">
+              <div class="slds-box">
+                <label class="slds-form-element__label" for="te-select">Enter Case number</label>
+                <input type="text" class="form-control" id="case-number" name="case-number"
+                  placeholder="Leave this blank if you want to perform a general audit for all cases" />
+              </div>
+            </div>
+            <div class="slds-col slds-form-element">
+              <div class="slds-box">
+                <h1><b>OR</b></h1>
+              </div>
+            </div>
+            <div class="slds-col">
+              <div class="slds-box">
+                <div class="slds-form-element slds-m-top_small">
+                  <label class="slds-form-element__label" for="case-limit">Select no. of cases to audit (default:
+                    5)</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select class="slds-select" id="case-limit">
+                        <option value="">Choose a Value</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-form-element slds-m-top_small">
+                  <label class="slds-form-element__label" for="alert-select">Select an alert type</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select class="slds-select" id="alert-select">
+                        <option value="">
+                          Leave this blank if you want to perform a general
+                          audit for all alerts
+                        </option>
+                        <option value="a6BHx000000001dMAA">
+                          Apex CPU Timeout Exceptions
+                        </option>
+                        <option value="a6BHx00000000pdMAA">
+                          Apex Future Dequeue Latency
+                        </option>
+                        <option value="a6BHx00000000o1MAA">
+                          Apex Future Performance
+                        </option>
+                        <option value="a6BHx000000001eMAA">
+                          Apex Queueable Dequeue Latency
+                        </option>
+                        <option value="a6BHx000000001fMAA">
+                          Apex Queueable Performance
+                        </option>
+                        <option value="a6BHx000000001mMAA">
+                          Bulk API Batch Limit
+                        </option>
+                        <option value="a6BHx000000001qMAA">
+                          Concurrent Apex Errors
+                        </option>
+                        <option value="a6BHx000000001rMAA">
+                          Concurrent API Requests
+                        </option>
+                        <option value="a6BHx000000001tMAA">
+                          Connection Pool Errors
+                        </option>
+                        <option value="a6BHx000000001vMAA">
+                          Daily Mass Mail Limit
+                        </option>
+                        <option value="a6BHx00000001icMAA">
+                          Daily Platform Events Delivery Limit
+                        </option>
+                        <option value="a6BHx000000003HMAQ">
+                          Database CPU Consumption Time
+                        </option>
+                        <option value="a6BHx000000003LMAQ">
+                          Hourly Timebased Workflow Limit
+                        </option>
+                        <option value="a6BHx000000003MMAQ">
+                          Login Failures
+                        </option>
+                        <option value="a6BHx000000003NMAQ">
+                          Login Success Rate
+                        </option>
+                        <option value="a6BHx000000003QMAQ">
+                          Org Average Page Time (APT)
+                        </option>
+                        <option value="a6BHx000000003SMAQ">
+                          Org Request Rate - Spike
+                        </option>
+                        <option value="a6BHx000000003TMAQ">
+                          Rowlock Timeout Errors
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-form-element slds-m-top_small">
+                  <label class="slds-form-element__label" for="te-select">Select a TE</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select class="slds-select" id="te-select">
+                        <option value="">
+                          Leave this blank if you want to perform a general
+                          audit for all TEs
+                        </option>
+                        <option value="005Hx000001L3ITIA0">
+                          Aathmacharan Selvasudarsanan
+                        </option>
+                        <option value="005Hx000003FU0rIAG">
+                          Amit Dawande
+                        </option>
+                        <option value="005Hx000000EEpVIAW">
+                          Ananya Mishra
+                        </option>
+                        <option value="005Hx000000EBjcIAG">
+                          Anindita Hazra
+                        </option>
+                        <option value="005Hx000000EEzBIAW">
+                          Anusha Avula
+                        </option>
+                        <option value="005Hx000000EBlKIAW">
+                          Ashwini Dubey
+                        </option>
+                        <option value="005Hx000000BAIbIAO">
+                          Bharadwaja Awunoori
+                        </option>
+                        <option value="005Hx000001L3K5IAK">
+                          Bharath Kumar A
+                        </option>
+                        <option value="005Hx000000EBlKIAW">
+                          Disha Ganguly
+                        </option>
+                        <option value="005Hx000000EBlKIAW">
+                          Neha Ramineni
+                        </option>
+                        <option value="005Hx000000EBi9IAG">
+                          Prasanna Kumar A
+                        </option>
+                        <option value="005Hx000001iWlCIAU">
+                          Tanay Tembhre
+                        </option>
+                        <option value="005Hx000001aXbCIAU">
+                          Suchi Tiwari
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary mt-4" id="fetch-qa-cases-btn">
+            Fetch Cases for QA
+          </button>
+          <button type="button" class="btn btn-primary mt-4" id="start-qa-btn">
+            Start QA (Bulk)
+          </button>
+          <button type="button" class="btn btn-danger mt-4" id="clear-btn">
+            Clear
+          </button>
+          <div id="cc-table">
+            <h1>Closed Cases</h1>
+            <table id="closed-cases-table" class="table">
+              <thead>
+                <tr>
+                  <th>Case Number</th>
+                  <th>Product Feature</th>
+                  <th>Created Date</th>
+                  <th>Closed Date</th>
+                  <th>Owner</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="qa-table">
+            <h1>Quality Analysis Results</h1>
+            <button type="button" class="btn btn-primary my-3" id="view-case-main-btn">
+              View Case
+            </button>
+            <button type="button" class="btn btn-primary my-3" id="view-case-desc-main-btn">
+              View Case Description
+            </button>
+            <button type="button" class="btn btn-primary my-3" id="copy-table-btn">
+              Copy Table Data
+            </button>
+            <button type="button" class="btn btn-primary my-3" id="download-log-btn">
+              Download Process Logs
+            </button>
+            <table id="qa-results-table" class="table">
+              <thead>
+                <tr>
+                  <th>Date/Time Opened</th>
+                  <th>Case Date/Time Closed</th>
+                  <th>Case Number</th>
+                  <th>Alert Name</th>
+                  <th>Type of Case Update</th>
+                  <th>Case Updated By</th>
+                  <th>Email Id</th>
+                  <th>Additional information</th>
+                  <th>SLA met</th>
+                  <th>Evaluation Period</th>
+                  <th>Case Status</th>
+                  <th>Case Description</th>
+                  <th>Closed Status</th>
+                  <th>VSSP</th>
+                  <th>Alert Missed By</th>
+                  <th>Customer Comment Missed By</th>
+                  <th>GEO Name</th>
+                  <th>QA Done By</th>
+                  <th>QA Done Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div id="non-qa-team-view" class="sub-header mt-4 mx-2">
+          <h6>
+            This tool is only accessible by ProM QA Team Members. If you want
+            to know more, please contact your geo manager.
+          </h6>
+          <p>
+            If you are a QA Team Member and still seeing this message, please
+            visit
+            <a href="settings.html">Settings</a>
+            page and update your role.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="my-spinner" class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+    <h2 id="stage-label"></h2>
+    <h3 id="time-label"></h3>
+  </div>
+  <script src="../lib/jsforce.js"></script>
+  <script src="../controllers/qaTool.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{
+  "00UEa000000ITDFMA4": {
+    "event_id": "00UEa000000ITDFMA4",
+    "event_subject": "Initiated SET engagement request",
+    "event_created_at": "datetime.datetime(2023, 4, 24, 16, 35, 31)",
+    "time_elasped": 0
+  },
+  "00UEa000000IaMnMAK": {
+    "event_id": "00UEa000000IaMnMAK",
+    "event_subject": "Escalation Manager/SET joins internal bridge",
+    "event_created_at": "datetime.datetime(2023, 4, 25, 13, 12, 2)",
+    "time_elasped": "datetime.timedelta(seconds=74191)"
+  },
+  "00UEa000000IaOPMA0": {
+    "event_id": "00UEa000000IaOPMA0",
+    "event_subject": "Decision made to log an investigation",
+    "event_created_at": "datetime.datetime(2023, 4, 25, 13, 12, 44)",
+    "time_elasped": "datetime.timedelta(seconds=42)"
+  },
+  "00UEa000000IaQ1MAK": {
+    "event_id": "00UEa000000IaQ1MAK",
+    "event_subject": "Escalation Manager/SET disengaged",
+    "event_created_at": "datetime.datetime(2023, 4, 25, 13, 14, 6)",
+    "time_elasped": "datetime.timedelta(seconds=82)"
+  }
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>ProM Master 2.0</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+  <style>
+    .card {
+      margin: 2rem 0;
+      padding: 0.5rem 1rem;
+      border: 1px solid #d8dde6;
+      border-radius: 4px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .number {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 16px;
+    }
+
+    .align-right {
+      align-items: flex-end;
+      justify-content: right;
+      text-align: right;
+    }
+
+    .stylingButtons {
+      color: white !important;
+      background-color: black !important;
+      margin-top: 15px;
+      width: 100px;
+      font-size: 14px;
+      border-color: transparent !important;
+    }
+
+    .stylingButtons:hover {
+      font-weight: bold !important;
+      transition: 0.05s linear !important;
+    }
+
+    .stylingButtonsInverted {
+      color: black !important;
+      background-color: white !important;
+      margin-top: 15px;
+      width: fit-content;
+      font-size: 14px;
+      border-color: transparent !important;
+    }
+
+    .stylingButtonsInverted:hover {
+      background-color: lightgray !important;
+      font-weight: bolder !important;
+      transition: 0.05s linear;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-end bs-gray-900" id="sidebar-wrapper">
+      <div class="sidebar-heading bs-gray-900">
+        ProM
+        <b>Master 2.0</b>
+      </div>
+      <div class="list-group list-group-flush">
+        <!-- Productivity Tools -->
+        <p class="sidebar-header">Productivity Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="alertChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/check_60.png" />
+          Alert Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casecomments.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/announcement_60.png" />
+          Case Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="customercomment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/flow_60.png" />
+          Customer Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="closure.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/close.svg" />
+          Closure Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="gho.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/answer_best_60.png" />
+          Easy GHO
+        </a>
+        <!-- MDE Tools -->
+        <p class="sidebar-header">MDE Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="crtool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/change_owner.svg" />
+          Case Reassignment Tool
+        </a>
+
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deployment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/fallback_60.png" />
+          Deployment Monitoring
+        </a>
+
+        <!-- Added by Sandeep for WI-02 -->
+        <!-- <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casehandover.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/announcement_60.png" />
+          Case handover
+        </a> -->
+
+        <!-- Added by Sandeep for WI-02 -->
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casehandover.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/announcement_60.png" />
+          Case handover
+        </a>
+        <p class="sidebar-header">Special Access Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="UpdatedQaTool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/survey_60.png" />
+          ProQA Tool 
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="OrgErrorChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/call.svg" />
+          Voice Call Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="misses.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Misses
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deploymentPC.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Deployment PC
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="orgIdValidator.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/priority.svg" />
+          Org Id Validator
+        </a>
+        <!-- <a
+            class="list-group-item list-group-item-action list-group-item-light p-1"
+            href="ccamTool.html"
+          >
+            <img src="./css/slds/assets/icons/action/info_60.png" />
+            ProCAM Tool
+          </a> -->
+        <!-- User Settings -->
+        <p class="sidebar-header">Personalization</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="settings.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/settings.svg" />
+          User Settings
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1"
+          href="https://docs.google.com/spreadsheets/d/1UCbLPbwimyvmRK_CTrFhAQacapppegfiQwp00qf6Itw/edit#gid=0"
+          target="”_blank”">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/reply.svg" />
+          Feedback form
+        </a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Top navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bs-gray-900 border-bottom ">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item active shift-container">
+                <span id="logged-in-status-dot" class="dot"></span>
+                <p id="current-shift" class="nav-link sub-header"></p>
+              </li>
+              <li class="nav-item active shift-container">
+                <a class="nav-link sub-header" href="popup.html">Home</a>
+              </li>
+              <li class="nav-item shift-container">
+                <a class="nav-link" href="settings.html">
+                  <p id="user-name"></p>
+                </a>
+              </li>
+              <li class="nav-item shift-container">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                  <img class="profile-pic" alt="Person name" id="profile-pic" title="Person name" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content-->
+      <div class="container-fluid">
+        <div class="slds">
+          <!-- Toast notification -->
+          <div class="slds-notify_container slds-is-relative" id="toast" style="display: none">
+            <div class="slds-notify slds-notify_toast slds-theme_success" id="statuses" role="status">
+              <span class="slds-assistive-text">success</span>
+              <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top"
+                title="Description of icon when needed">
+                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                  <use xlink:href="./css/slds/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+                </svg>
+              </span>
+              <div class="slds-notify__content">
+                <h2 id="errorMessage" class="slds-text-heading_small">
+                  Account
+                </h2>
+              </div>
+              <div class="slds-notify__close">
+                <button class="slds-button slds-button_icon slds-button_icon-inverse" id="close" title="Close">
+                  X
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-2">
+              <h1 class="mt-4 mx-2">Settings</h1>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-2 align-right">
+              <button type="button" class="btn btn-primary mt-4 stylingButtons" id="edit-btn">
+                Edit
+              </button>
+              <button type="submit" class="btn btn-success mt-4 d-none stylingButtons" id="save-btn">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="sub-header mt-4 mx-2">
+          Configure ProM Master according to your needs. Please Click on
+          <b>'Edit'</b> to edit your profile details
+        </p>
+        <h6 id="profile-saved-state" class="mt-4 mx-2"></h6>
+        <!-- form data -->
+        <div class="mt-4 mx-2">
+          <div class="form-group mt-4">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required readonly />
+          </div>
+          <div class="form-group mt-2">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required readonly />
+          </div>
+          <div class="form-group mt-2">
+            <label for="role">GEO</label>
+            <select class="form-control" id="geo" name="geo" disabled>
+              <option value="apac">APAC</option>
+              <option value="emea">EMEA</option>
+              <option value="amer">AMER</option>
+            </select>
+          </div>
+          <div class="form-group mt-2">
+            <label for="role">Role:</label>
+            <select class="form-control" id="role" name="role" disabled>
+              <option value="TE">TE</option>
+              <option value="MDE">MDE</option>
+              <option value="QA">QA</option>
+              <option value="Manager">Manager</option>
+            </select>
+          </div>
+          <div class="form-group mt-2">
+            <label for="role">Team's Channel:</label>
+            <select class="form-control" id="team-channel" name="team-channel" disabled>
+              <option value="emea_channel_id">prom-hyd-core-emea-te</option>
+              <option value="amer_channel_id">
+                prom-amer-internal-alerts
+              </option>
+              <option value="apac_channel_id">apac-channel</option>
+            </select>
+          </div>
+        </div>
+             <!-- Notification configuration -->
+          <div class="card mt-4 mx-2">
+            <p class="sub-header mt-2">Configure your Notification settings</p>
+            <div class="form-check mt-4">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="new-case-alerts"
+                name="new-case-alerts"
+                disabled
+              />
+              <label class="form-check-label" for="new-case-alerts"
+                >Enable New/Reopen Case Notifications</label
+              >
+            </div>
+            <div class="form-check mt-4">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="new-comment-alerts"
+                name="new-comment-alerts"
+                disabled
+              />
+              <label class="form-check-label" for="new-comment-alerts"
+                >Enable New Comment Notifications</label
+              >
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="my-spinner" class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+  <script src="../lib/jsforce.js"></script>
+  <script src="../lib/jquery.min.js"></script>
+  <script src="../controllers/settings.js" type="module"></script>
+</body>
+
+</html>

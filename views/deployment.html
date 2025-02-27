@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>ProM Master 2.0</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+
+  <style>
+    /* styles.css */
+
+    /* Style the error popup container */
+    #close {
+      color: white;
+    }
+
+    .custom-select select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: white;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #333;
+      cursor: pointer;
+      width: 100%;
+    }
+
+
+    #noCases {
+      text-align: center;
+      font-size: 15px;
+      font-family: "Arial", sans-serif;
+      color: #333;
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Custom option styles */
+    .custom-select select option {
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 10px;
+    }
+
+    .custom-select::after {
+      content: "\25BC";
+      position: absolute;
+      top: 78%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      left: calc(100% - 640px);
+      /* Adjust the value as needed */
+    }
+
+    @media (max-width: 576px) {
+      .custom-select::after {
+        left: 100%;
+        /* Reset the left position for smaller screens */
+      }
+    }
+
+    .card {
+      background-color: #f1f1f1;
+
+    }
+
+    .subjectStyling {
+      /* Adjust the width as per your requirement */
+      height: 80px;
+      border: 1px solid #ced4da;
+      /* Add a border */
+      border-radius: 4px;
+      /* Rounded corners */
+
+      padding: 8px 12px;
+      /* Add some padding */
+      font-size: 13px;
+      /* Adjust font size */
+      color: #495057;
+      /* Text color */
+      box-shadow: none;
+      /* Remove the default box shadow */
+    }
+
+    /* Custom styling for the datetime-local input */
+    .custom-datetime-input,
+    .customer {
+      /* Adjust the width as per your requirement */
+      border: 1px solid #ced4da;
+      /* Add a border */
+      border-radius: 4px;
+      /* Rounded corners */
+      background-color: #f8f9fa;
+      /* Set background color */
+      padding: 8px 12px;
+      /* Add some padding */
+      font-size: 13px;
+      /* Adjust font size */
+      color: #495057;
+      /* Text color */
+      box-shadow: none;
+      /* Remove the default box shadow */
+      margin-right: 30px;
+    }
+
+    /* Change the placeholder color */
+    .custom-datetime-input::placeholder {
+      color: #adb5bd;
+    }
+
+    /* Change the focus state */
+    .custom-datetime-input:focus {
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    #eventLabel {
+      font-weight: bold;
+      padding: 5px;
+    }
+
+    #validate,
+    #getDeploymentCases {
+      height: 40px;
+    }
+
+    #buttons {
+      height: 40px;
+    }
+
+
+
+    .stylingButtons {
+      color: white !important;
+      background-color: black !important;
+      /* margin-top: 15px; */
+      width: fit-content;
+      font-size: 12px;
+      border-color: transparent !important;
+      display: block !important;
+    }
+
+    .stylingButtons:hover {
+      font-weight: bold !important;
+      transition: 0.05s linear !important;
+    }
+
+    .stylingButtonsInverted {
+      color: black !important;
+      background-color: white !important;
+      margin-top: 15px;
+      width: fit-content;
+      font-size: 14px;
+      border-color: transparent !important;
+      display: block !important;
+    }
+
+    .stylingButtonsInverted:hover {
+      background-color: lightgray !important;
+      font-weight: bolder !important;
+      transition: 0.05s linear;
+    }
+
+    #getCasesOfDeployment {
+      margin-top: 0.5rem;
+    }
+
+
+    .radio-label {
+      display: inline-block;
+      margin-right: 15px;
+      /* Add some spacing between radio inputs */
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 600px) {
+      .radio-label {
+        display: block;
+        /* Change back to block for stacking on smaller screens */
+        margin-right: 0;
+        /* Reset margin for smaller screens */
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-end bs-gray-900" id="sidebar-wrapper">
+      <div class="sidebar-heading bs-gray-900">
+        ProM
+        <b>Master 2.0</b>
+      </div>
+      <div class="list-group list-group-flush">
+        <!-- Productivity Tools -->
+        <p class="sidebar-header">Productivity Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="alertChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/check_60.png" />
+          Alert Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casecomments.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/announcement_60.png" />
+          Case Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="customercomment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/flow_60.png" />
+          Customer Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="closure.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/close.svg" />
+          Closure Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="gho.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/answer_best_60.png" />
+          Easy GHO
+        </a>
+        <!-- MDE Tools -->
+        <p class="sidebar-header">MDE Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="crtool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/change_owner.svg" />
+          Case Reassignment Tool
+        </a>
+
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deployment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/fallback_60.png" />
+          Deployment Monitoring
+        </a>
+        <!-- Added by Sandeep for WI-02 -->
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casehandover.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/announcement_60.png" />
+          Case handover
+        </a>
+        <p class="sidebar-header">Special Access Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="UpdatedQaTool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/survey_60.png" />
+          ProQA Tool 
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="OrgErrorChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/call.svg" />
+          Voice Call Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="misses.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Misses
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deploymentPC.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Deployment PC
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="orgIdValidator.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/priority.svg" />
+          Org Id Validator
+        </a>
+        <!-- <a
+            class="list-group-item list-group-item-action list-group-item-light p-1"
+            href="ccamTool.html"
+          >
+            <img src="./css/slds/assets/icons/action/info_60.png" />
+            ProCAM Tool
+          </a> -->
+        <!-- User Settings -->
+        <p class="sidebar-header">Personalization</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="settings.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/settings.svg" />
+          User Settings
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1"
+          href="https://docs.google.com/spreadsheets/d/1UCbLPbwimyvmRK_CTrFhAQacapppegfiQwp00qf6Itw/edit#gid=0"
+          target="”_blank”">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/reply.svg" />
+          Feedback form
+        </a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Top navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bs-gray-900 border-bottom ">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item active shift-container">
+                <span id="logged-in-status-dot" class="dot"></span>
+                <p id="current-shift" class="nav-link sub-header"></p>
+              </li>
+              <li class="nav-item active shift-container">
+                <a class="nav-link sub-header" href="popup.html">Home</a>
+              </li>
+              <li class="nav-item shift-container">
+                <a class="nav-link" href="settings.html">
+                  <p id="user-name"></p>
+                </a>
+              </li>
+              <li class="nav-item shift-container">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                  <img class="profile-pic" alt="Person name" id="profile-pic" title="Person name" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- Page content-->
+      <div class="container-fluid">
+        <h1 class="mt-4 mx-2">Create Deployment Event</h1>
+
+        <p class="mt-4 mx-2 sub-header">Create an Event for Deployment notification here</p>
+
+        <!-- Start: Toast message display -->
+        <div class="slds-notify_container slds-is-relative" id="toast" style="display: none;">
+          <div class="slds-notify slds-notify_toast slds-theme_success" id="statuses" role="status">
+            <span class="slds-assistive-text">success</span>
+            <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top"
+              title="Description of icon when needed">
+              <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                <use xlink:href="./css/slds/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+              </svg>
+            </span>
+            <div class="slds-notify__content">
+              <h2 id="errorMessage" class="slds-text-heading_small ">Account
+            </div>
+            <div class="slds-notify__close">
+              <button class="slds-button slds-button_icon slds-button_icon-inverse" id="close" title="Close">X
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- End : Toast message display -->
+
+        <!-- Start: Main wrapper -->
+        <div id="non-qa-team-view" class="sub-header mt-4 mx-2 mb-2">
+
+          <!-- Input case and create event Wrapper -->
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="slds-form-element__control slds-grid slds-gutters">
+                <!-- Case Number input -->
+                <div class="slds-col">
+                  <label class="slds-form-element__label" id="eventLabel" for="ownerName">Enter Case Number</label>
+                  <input type="text" class="form-control customer" id="case-id" name="owner-Id"
+                    placeholder="Enter case number here..." />
+                </div>
+                <!-- Get case detail button -->
+                <div class="slds-col">
+                  <label class="slds-form-element__label" id="eventLabel" for="ownerName"> </label>
+                  <div class="button-container mt-2" id="buttons">
+                    <button type="button" class="btn btn-dark" style="font-size: 13px;" id="validate">Get details of the
+                      case</button>
+                  </div>
+                </div>
+              </div>
+              <!--  Create event card collapsed -->
+              <div id="displayforCrtCase">
+                <div class="slds-form-element__control slds-grid slds-gutters">
+                  <div class="slds-col">
+
+                    <label class="slds-form-element__label" id="eventLabel" for="accountName">Account Name</label>
+                    <input type="text" class="form-control customer" id="accountName" name="Account-Id" />
+
+                  </div>
+                  <div class="slds-col">
+                    <label class="slds-form-element__label" id="eventLabel" for="orgName">Organization ID</label>
+                    <input type="text" class="form-control customer" id="orgId" name="Org-Id" />
+                  </div>
+                </div>
+
+                <div class="slds-form-element__control slds-grid slds-gutters timeDetails">
+                  <div class="slds-col">
+                    <div class="slds-form-element slds-m-top_small">
+                      <div class="slds-form-element">
+                        <label class="slds-form-element__label" id="eventLabel" for="dateTime-picker">Deployment Start
+                          Time</label>
+                        <input type="datetime-local" class="form-control custom-datetime-input" id="dateTimeStart"
+                          name="dateTime-picker" placeholder="Enter Date and time " />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-col">
+                    <div class="slds-form-element slds-m-top_small">
+                      <div class="slds-form-element">
+                        <label class="slds-form-element__label" id="eventLabel" for="dateTime-picker">Deployment End
+                          Time</label>
+                        <input type="datetime-local" class="form-control custom-datetime-input" id="dateTimeEnd"
+                          name="dateTime-picker" placeholder="Enter Date and time " />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="slds-form-element__control slds-grid slds-gutters">
+                  <div class="slds-col">
+                    <div class="form-group ">
+                      <label class="slds-form-element__label" id="eventLabel" for="subject">Case Subject</label>
+                      <textarea rows="5" class="form-control subjectStyling" id="subject"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="slds-form-element__control slds-grid slds-gutters">
+                  <div class="slds-col">
+                    <label class="slds-form-element__label" id="eventLabel" for="ownerName">Case Owner</label>
+                    <input type="text" class="form-control customer" id="ownerName" name="owner-Id" />
+                  </div>
+                  <div class="slds-col">
+                    <label class="slds-form-element__label" id="eventLabel" for="ownerName"></label>
+                    <div class="button-container mt-3" id="buttons">
+                      <button type="button" class="btn btn-dark" style="font-size: 13px;" id="createEvent">Create Event
+                        on this Case</button>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+              <!-- END: Create event card collapsed -->
+            </div>
+          </div>
+
+          <!--  Radio buttons  Card-->
+          <div class="card">
+            <div class="card-body">
+               <!-- Addition two dropdown here -->
+              <div class="slds-form-element slds-m-top_small">
+                  <div class="slds-form-element__control slds-grid slds-gutters">
+                      <div class="slds-col slds-size_1-of-3">
+                          <label class="slds-form-element__label" for="alert-select">Case Filter</label>
+                          <div class="slds-form-element__control">
+                              <div class="slds-select_container">
+                                  <select class="slds-select" id="caseFilter">
+                                      <!-- <option>Choose time</option> -->
+                                      <option value="allCases" selected> All Cases</option>
+                                      <option value="onGoingCases"> Ongoing Activity</option>
+                                      <option value="endedActivityCases">Ended Activity </option>
+                                      <option value="noEventCases">No Event </option>
+                                       <option value="reviewNeededCases">Review Needed </option>
+
+                                  </select>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="slds-col slds-size_1-of-3">
+                          <label class="slds-form-element__label" for="alert-severity">Select an
+                                                                          View</label>
+                          <div class="slds-form-element__control">
+                              <div class="slds-select_container">
+                                  <select class="slds-select" id="selectView">
+                                      <option value="TE" selected>TE</option>
+                                      <option value="MDE">MDE</option>
+                                  </select>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="slds-col slds-size_1-of-3 ">
+                        <div class="slds-grid slds-gutters mt-2"> 
+                            <div> 
+                                <button class="btn btn-dark stylingButtons" id="getCases"> Search </button>
+                            </div>
+                            <div>
+                                <button class="btn btn-secondary stylingButtons mx-2 " style="display:none;" id="copyDeployment"> Copy deployment </button>
+                            </div> 
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+         <!-- End : Main wrapper -->
+
+        <!--  Showing table result wrapper -->
+        <div>
+          <fieldset class="table mt-3" id="caseListTable">
+            <div class="table" id="dvTable"></div>
+          </fieldset>
+        </div>
+
+        <p class="centered-text" id="noCases"></p>
+      </div>
+      <!-- End:  Page content -->
+    </div>
+  </div>
+
+  <div id="my-spinner" class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+  <script src="../lib/jsforce.js"></script>
+  <script src="../controllers/deployment.js" type="module"></script>
+</body>
+
+</html>

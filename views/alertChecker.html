@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>ProM Master 2.0</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+  <style>
+    .stylingButtons {
+      color: white !important;
+      background-color: black !important;
+      margin-top: 15px;
+      width: fit-content;
+      font-size: 14px;
+      border-color: transparent !important;
+    }
+
+    .stylingButtons:hover {
+      font-weight: bold !important;
+      transition: 0.05s linear !important;
+    }
+
+    .stylingButtonsInverted {
+      color: black !important;
+      background-color: white !important;
+      margin-top: 15px;
+      width: fit-content;
+      font-size: 14px;
+      border-color: transparent !important;
+    }
+
+    .stylingButtonsInverted:hover {
+      background-color: lightgray !important;
+      font-weight: bolder !important;
+      transition: 0.05s linear;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-end bs-gray-900" id="sidebar-wrapper">
+      <div class="sidebar-heading bs-gray-900">
+        ProM
+        <b>Master 2.0</b>
+      </div>
+      <div class="list-group list-group-flush">
+        <!-- Productivity Tools -->
+        <p class="sidebar-header">Productivity Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="alertChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/check_60.png" />
+          Alert Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casecomments.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/announcement_60.png" />
+          Case Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="customercomment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/flow_60.png" />
+          Customer Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="closure.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/close.svg" />
+          Closure Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="gho.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/answer_best_60.png" />
+          Easy GHO
+        </a>
+        <!-- MDE Tools -->
+        <p class="sidebar-header">MDE Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="crtool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/change_owner.svg" />
+          Case Reassignment Tool
+        </a>
+
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deployment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/fallback_60.png" />
+          Deployment Monitoring
+        </a>
+        <!-- Added by Sandeep for WI-02 -->
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casehandover.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/announcement_60.png" />
+          Case handover
+        </a>
+        <p class="sidebar-header">Special Access Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="UpdatedQaTool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/survey_60.png" />
+          ProQA Tool 
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="OrgErrorChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/call.svg" />
+          Voice Call Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="misses.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Misses
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deploymentPC.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Deployment PC
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="orgIdValidator.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/priority.svg" />
+          Org Id Validator
+        </a>
+        <!-- <a
+            class="list-group-item list-group-item-action list-group-item-light p-1"
+            href="ccamTool.html"
+          >
+            <img src="./css/slds/assets/icons/action/info_60.png" />
+            ProCAM Tool
+          </a> -->
+        <!-- User Settings -->
+        <p class="sidebar-header">Personalization</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="settings.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/settings.svg" />
+          User Settings
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1"
+          href="https://docs.google.com/spreadsheets/d/1UCbLPbwimyvmRK_CTrFhAQacapppegfiQwp00qf6Itw/edit#gid=0"
+          target="”_blank”">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/reply.svg" />
+          Feedback form
+        </a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Top navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bs-gray-900 border-bottom ">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item active shift-container">
+                <span id="logged-in-status-dot" class="dot"></span>
+                <p id="current-shift" class="nav-link sub-header"></p>
+              </li>
+              <li class="nav-item active shift-container">
+                <a class="nav-link sub-header" href="popup.html">Home</a>
+              </li>
+              <li class="nav-item shift-container">
+                <a class="nav-link" href="settings.html">
+                  <p id="user-name"></p>
+                </a>
+              </li>
+              <li class="nav-item shift-container">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                  <img class="profile-pic" alt="Person name" id="profile-pic" title="Person name" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content-->
+      <div class="container-fluid">
+        <h1 class="mt-4 mx-2">Alert Checker</h1>
+        <p class="sub-header mt-4 mx-2">
+          Check alerts received on Cases for Specific Accounts and Specific
+          Orgs in a given timeframe.
+        </p>
+        <div class="slds-box mt-4 mx-2">
+          <div class="slds-form-element slds-m-top_small">
+            <div class="slds-form-element">
+              <label class="slds-form-element__label" for="account-id">Account Name</label>
+              <input type="text" class="form-control" id="account-id" name="Account-Id"
+                placeholder="Enter Account Name(Optional)" required />
+              <label class="slds-form-element__label" for="org-id">Org Id</label>
+              <input type="text" class="form-control" id="Org-id" name="Org-Id" placeholder="Enter Org Id" required />
+            </div>
+          </div>
+
+          <div class="slds-form-element slds-m-top_small">
+            <div class="slds-form-element__control slds-grid slds-gutters">
+              <div class="slds-col">
+                <label class="slds-form-element__label" for="dateTimeStart">
+                  Start Date and Time(UTC)
+                </label>
+                <input type="datetime-local" class="form-control" id="dateTimeStart" name="dateTime-picker"
+                  placeholder="Enter Date and time" />
+              </div>
+              <div class="slds-col">
+                <label class="slds-form-element__label" for="dateTimeEnd">
+                  End Date and Time(UTC)
+                </label>
+                <input type="datetime-local" class="form-control" id="dateTimeEnd" name="dateTime-picker"
+                  placeholder="Enter Date and time" />
+              </div>
+            </div>
+          </div>
+          <div class="slds-form-element slds-m-top_small">
+            <div class="slds-form-element__control slds-grid slds-gutters">
+              <div class="slds-col slds-size_1-of-2">
+                <label class="slds-form-element__label" for="alert-select">Select an alert type(Choose All alerts if any
+                  isn't listed)</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select class="slds-select" id="alert-select">
+                      <option value="All">
+                        All Alerts
+                      </option>
+                      <option value="a6BHx000000001dMAA">
+                        Apex CPU Timeout Exceptions
+                      </option>
+                      <option value="a6BHx00000000pdMAA">
+                        Apex Future Dequeue Latency
+                      </option>
+                      <option value="a6BHx00000000o1MAA">
+                        Apex Future Performance
+                      </option>
+                      <option value="a6BHx000000001eMAA">
+                        Apex Queueable Dequeue Latency
+                      </option>
+                      <option value="a6BHx000000001fMAA">
+                        Apex Queueable Performance
+                      </option>
+                      <option value="a6BHx000000001gMAA">
+                        Api Request Limit
+                      </option>
+                      <option value="a6BHx000000001hMAA">
+                        Async Apex Execution Limit
+                      </option>
+                      <option value="a6BHx000000001iMAA">
+                        Asynchronous Callout Failures
+                      </option>
+                      <option value="a6BHx000000001jMAA">
+                        Average Synchronous Callout Time
+                      </option>
+                      <option value="a6BHx000000001mMAA">
+                        Bulk API Batch Limit
+                      </option>
+                      <option value="a6BHx000000001nMAA">
+                        Bulk API Performance
+                      </option>
+                      <option value="a6BHx000000001qMAA">
+                        Concurrent Apex Errors
+                      </option>
+                      <option value="a6BHx000000001rMAA">
+                        Concurrent API Requests
+                      </option>
+                      <option value="a6BHx000000001sMAA">
+                        Concurrent UI Errors
+                      </option>
+                      <option value="a6BHx000000001tMAA">
+                        Connection Pool Errors
+                      </option>
+                      <option value="a6BHx000000001uMAA">
+                        Daily Content Version Limit
+                      </option>
+                      <option value="a6BHx000000001vMAA">
+                        Daily Mass Mail Limit
+                      </option>
+                      <option value="a6BHx00000001icMAA">
+                        Daily Platform Events Delivery Limit
+                      </option>
+                      <option value="a6BHx000000001wMAA">
+                        Daily Single Email Limit
+                      </option>
+                      <option value="a6BHx000000003FMAQ">
+                        Daily Workflow Emails
+                      </option>
+                      <option value="a6BHx00000000rFMAQ">
+                        Dashboard Performance
+                      </option>
+                      <option value="a6BHx000000003HMAQ">
+                        Database CPU Consumption Time
+                      </option>
+                      <option value="a6BHx000000003IMAQ">
+                        Durable Streaming API limit
+                      </option>
+                      <option value="a6BHx000000003KMAQ">
+                        Hourly OData XDS Callout limit
+                      </option>
+                      <option value="a6BHx00000001idMAA">
+                        Hourly Platform Events Publishing Limit
+                      </option>
+                      <option value="a6BHx000000003LMAQ">
+                        Hourly Timebased Workflow Limit
+                      </option>
+                      <option value="a6BHx000000003MMAQ">
+                        Login Failures
+                      </option>
+                      <option value="a6BHx000000003NMAQ">
+                        Login Success Rate
+                      </option>
+                      <option value="a6BHx000000003OMAQ">
+                        Login Success Volume
+                      </option>
+                      <option value="a6BHx000000003PMAQ">
+                        Max Content (File) Limit
+                      </option>
+                      <option value="a6BHx000000040PMAQ">
+                        MQ Longest Wait Time
+                      </option>
+                      <option value="a6BHx000000003QMAQ">
+                        Org Average Page Time (APT)
+                      </option>
+                      <option value="a6BHx000000003RMAQ">
+                        Org Request Rate - Drop
+                      </option>
+                      <option value="a6BHx000000003SMAQ">
+                        Org Request Rate - Spike
+                      </option>
+                      <option value="a6BHx000000003WMAQ">
+                        Platform Events Latency
+                      </option>
+                      <option value="a6BHx000000040QMAQ">
+                        Platform Events Dequeue Latency
+                      </option>
+                      <option value="a6BHx000000003VMAQ">
+                        Search Indexing Delay
+                      </option>
+                      <option value="a6BHx000000003XMAQ">
+                        Streaming API Limit
+                      </option>
+                      <option value="a6BHx000000003YMAQ">
+                        Synchronous Callout Failures
+                      </option>
+                      <option value="a6BHx000000003TMAQ">
+                        Rowlock Timeout Errors
+                      </option>
+                      <option value="a6BHx000000004rMAA">
+                        Web-to-X Request Limit
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-col slds-size_1-of-2">
+                <label class="slds-form-element__label" for="alert-severity">Select an alert severity</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select class="slds-select" id="alert-severity">
+                      <option value="ALL">All</option>
+                      <option value="WARNING">Warning</option>
+                      <option value="CRITICAL">Critical</option>
+                      <option value="EXHAUSTED">Exhausted</option>
+                      <option value="INFORMATION">Information</option>
+                      <option value="OKAY">Okay</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </br>
+          <button class="btn btn-primary stylingButtons" id="alertChecker-point">Get Alerts</button>
+          <button class="btn btn-danger stylingButtonsInverted" id="alertChecker-clear">Clear</button>
+        </div>
+        </br>
+        <div id="alert-checker-table" class="table mt-4 mx-1 px-4">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+  <div id="my-spinner" class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+  <script src="../lib/jsforce.js"></script>
+  <script src="../controllers/alertChecker.js" type="module"></script>
+</body>
+
+</html>

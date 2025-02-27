@@ -1,0 +1,39 @@
+{
+	"manifest_version": 3,
+	"name": "ProM Master",
+	"version": "2.22",
+	"description": "A chrome extension to help in daily functioning of ProM Service Delivery",
+	"content_scripts": [
+		{
+			"matches": ["https://orgcs.my.salesforce.com/*","https://orgcs.lightning.force.com/*"],
+			"js": ["background.js"]
+		}
+	],
+	"action": {},
+	"background": {
+		"service_worker": "background.js",
+		"type": "module"
+	},
+	"icons": {
+		"16": "/icon.png"
+	},
+	"permissions": [
+		"storage",
+		"activeTab",
+		"tabs",
+		"alarms",
+		"clipboardWrite",
+		"cookies",
+		"notifications"
+	],
+	"host_permissions": [
+		"https://www.google.com/*",
+		"https://prom-gadget.eng.sfdc.net/diagnostics/*",
+		"https://prom-gadgetui2-1-xrd.eng.sfdc.net:8443/diagnostics/*",
+		"https://orgcs.lightning.force.com/*",
+		"https://orgcs.my.salesforce.com/*",
+		"https://mcsorg.my.salesforce.com/*",
+		"https://gus.my.salesforce.com/*",
+		"https://login.Salesforce.com/*"
+	]
+}

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>ProM Master 2.0</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+  <style>
+    .description {
+      font-size: 16px;
+    }
+
+    #validate,
+    #getDeploymentCases {
+      height: 40px;
+    }
+
+    #close {
+      color: white;
+    }
+
+    .custom-select select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: white;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #333;
+      cursor: pointer;
+      width: 100%;
+    }
+
+
+    #noCases {
+      text-align: center;
+      font-size: 15px;
+      font-family: "Arial", sans-serif;
+      color: #333;
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .card-desc {
+      color: grey;
+      font-weight: bold;
+    }
+
+    .custom-select select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: white;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #333;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .custom-select select option {
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 10px;
+    }
+
+    #eventLabel {
+      font-weight: bold;
+      padding: 5px;
+    }
+
+    #miss-select {
+      margin-right: 30px;
+      height: 40px;
+    }
+
+    .small-text {
+      font-size: 80%;
+    }
+
+    .stylingButtons {
+      color: white !important;
+      background-color: black !important;
+      /* margin-top: 15px; */
+      width: fit-content;
+      font-size: 12px;
+      border-color: transparent !important;
+      display: block !important;
+    }
+
+    .stylingButtons:hover {
+      font-weight: bold !important;
+      transition: 0.05s linear !important;
+    }
+
+    .stylingButtonsInverted {
+      color: black !important;
+      background-color: white !important;
+      margin-top: 15px;
+      width: fit-content;
+      font-size: 14px;
+      border-color: transparent !important;
+      display: block !important;
+    }
+
+    .stylingButtonsInverted:hover {
+      background-color: lightgray !important;
+      font-weight: bolder !important;
+      transition: 0.05s linear;
+    }
+
+    .number {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-end bs-gray-900" id="sidebar-wrapper">
+      <div class="sidebar-heading bs-gray-900">
+        ProM
+        <b>Master 2.0</b>
+      </div>
+      <div class="list-group list-group-flush">
+        <!-- Productivity Tools -->
+        <p class="sidebar-header">Productivity Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="alertChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/check_60.png" />
+          Alert Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casecomments.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/announcement_60.png" />
+          Case Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="customercomment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/flow_60.png" />
+          Customer Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="closure.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/close.svg" />
+          Closure Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="gho.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/answer_best_60.png" />
+          Easy GHO
+        </a>
+        <!-- MDE Tools -->
+        <p class="sidebar-header">MDE Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="crtool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/change_owner.svg" />
+          Case Reassignment Tool
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deployment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/fallback_60.png" />
+          Deployment Monitoring
+        </a>
+        <!-- Added by Sandeep for WI-02 -->
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casehandover.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/announcement_60.png" />
+          Case handover
+        </a>
+        <p class="sidebar-header">Special Access Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="UpdatedQaTool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/survey_60.png" />
+          ProQA Tool 
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="OrgErrorChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/call.svg" />
+          Voice Call Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="misses.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Misses
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deploymentPC.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Deployment PC
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="orgIdValidator.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/priority.svg" />
+          Org Id Validator
+        </a>
+        <!-- <a
+            class="list-group-item list-group-item-action list-group-item-light p-1"
+            href="ccamTool.html"
+          >
+            <img src="./css/slds/assets/icons/action/info_60.png" />
+            ProCAM Tool
+          </a> -->
+        <!-- User Settings -->
+        <p class="sidebar-header">Personalization</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="settings.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/settings.svg" />
+          User Settings
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1"
+          href="https://docs.google.com/spreadsheets/d/1UCbLPbwimyvmRK_CTrFhAQacapppegfiQwp00qf6Itw/edit#gid=0"
+          target="" _blank"">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/reply.svg" />
+          Feedback form
+        </a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Top navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bs-gray-900 border-bottom ">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item active shift-container">
+                <span id="logged-in-status-dot" class="dot"></span>
+                <p id="current-shift" class="nav-link sub-header"></p>
+              </li>
+              <li class="nav-item active shift-container">
+                <a class="nav-link sub-header" href="popup.html">Home</a>
+              </li>
+              <li class="nav-item shift-container">
+                <a class="nav-link" href="settings.html">
+                  <p id="user-name"></p>
+                </a>
+              </li>
+              <li class="nav-item shift-container">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                  <img class="profile-pic" alt="Person name" id="profile-pic" title="Person name" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content-->
+      <div class="container-fluid">
+        <h1 class="mt-4">Deployment Public Comment Misses</h1>
+        <p class="sub-header mt-4">
+          Check public comment misses on deployment cases
+        </p>
+        <p class="slds-form-element__label">
+          <strong>Note:</strong>
+          <em>
+            While checking, please refresh the page 2-3
+            times if it says Bad Request
+          </em>
+        </p>
+
+        <div id="misses" style="
+              justify-content: space-around;
+              display: flex;
+              margin-top: 20px;
+            ">
+        </div>
+
+        <div id="nonmgrteamview" class="sub-header mt-4 mx-2">
+          <h6>
+            This tool is only accessible by ProM Managers. If you want to know
+            more, please contact your geo manager.
+          </h6>
+          <p>
+            If you are a Manager and still seeing this message, please visit
+            <a href="settings.html">Settings</a>
+            page and update your role.
+          </p>
+        </div>
+        
+        <divclass="slds-form-element slds-m-top_small" id="managerView">
+          <div class="slds-form-element slds-m-top_small">
+            <div class="slds-form-element">
+              <div class="card">
+                <div class="card-body">
+
+                  <div class="slds-form-element slds-m-top_small">
+                    <div class="slds-form-element__control slds-grid slds-gutters">
+                      <div class="slds-col">
+                        <label class="slds-form-element__label" for="dateTimeStart1">
+                          Start Date and Time(IST)
+                        </label>
+                        <input type="datetime-local" class="form-control" id="dateTimeStart1" name="dateTime-picker"
+                          placeholder="Enter Date and time" />
+                      </div>
+                      <div class="slds-col">
+                        <label class="slds-form-element__label" for="dateTimeEnd1">
+                          End Date and Time(IST)
+                        </label>
+                        <input type="datetime-local" class="form-control" id="dateTimeEnd1" name="dateTime-picker"
+                          placeholder="Enter Date and time" />
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <fieldset class="table mt-3" id="caseListTable">
+                      <div class="table" id="dvTable"></div>
+                    </fieldset>
+                  </div>
+                      
+
+                <div>
+                  <button class="btn btn-dark mt-3" style="font-size: 15px" id="misses-point">
+                    Get Details
+                  </button>
+                  <button class="btn btn-dark mt-3" style="font-size: 15px; margin-left: 20px" id="copy-data1">
+                    Copy to Clipboard
+                  </button>
+                  <button class="btn btn-light mt-3" style="font-size: 15px; margin-left: 20px" id="misses-clear">
+                    Clear
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="centered-text" id="noCases"></p>
+
+  <div id="misses-checker-table1" class="table mt-4 mx-1 px-4"></div>
+
+  <div id="my-spinner" class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+  <script src="../lib/jsforce.js"></script>
+  <script src="../controllers/deploymentPC.js" type="module"></script>
+</body>
+
+</html>

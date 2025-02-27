@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>ProM Master 2.0</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <script src="/lib/jsforce.js"></script>
+  <script src="/lib/jquery.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/slds/assets/styles/salesforce-lightning-design-system.css" />
+</head>
+<style>
+  #data-entry-section {
+    font-size: medium !important;
+    width: 100% !important;
+    display: flex;
+  }
+
+  #data-entry-section ul {
+    width: 100% !important;
+  }
+
+  .slds-col {
+    flex: 1;
+  }
+
+  #listoptionsAvailableTE,
+  #listoptionsSelectedTE {
+    width: 100%;
+    min-height: 400px;
+  }
+
+  .stylingButtons {
+    color: white !important;
+    background-color: black !important;
+    margin-top: 15px;
+    width: fit-content;
+    font-size: 14px;
+    border-color: transparent !important;
+  }
+
+  #middleDiv {
+    justify-content: center;
+    align-items: center;
+    height: 100% !important;
+    width: 3rem !important;
+  }
+
+  #assignCases {
+    margin-right: 10px;
+    margin-left: 2px;
+    border: 0;
+    border-radius: 5px;
+  }
+
+  #grabCases {
+    background-color: rgb(46, 43, 43);
+    border-radius: 5px;
+    border: 0;
+  }
+
+  #middleDiv {
+    flex-grow: 0.2;
+  }
+
+  .move-right-btn {
+    background-color: black !important;
+    color: white !important;
+  }
+
+  .move-left-btn {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  /* Start : added by Sandeep for WI-1 */
+  div.AutoFetchBtnWrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 465px;
+  }
+
+  #AutoSelectInput,
+  #AutoSelectInput:focus,
+  #AutoSelectInput:focus-visible {
+
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    background-color: white;
+    overflow: auto
+  }
+
+  div.autoSelectMTEWrapper {
+    display: none;
+  }
+
+  /* added by Sandeep for WI-1 */
+</style>
+
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="border-end bs-gray-900" id="sidebar-wrapper">
+      <div class="sidebar-heading bs-gray-900">
+        ProM
+        <b>Master 2.0</b>
+      </div>
+      <div class="list-group list-group-flush">
+        <!-- Productivity Tools -->
+        <p class="sidebar-header">Productivity Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="alertChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/check_60.png" />
+          Alert Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casecomments.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/announcement_60.png" />
+          Case Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="customercomment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/flow_60.png" />
+          Customer Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="closure.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/close.svg" />
+          Closure Comments
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="gho.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/standard/answer_best_60.png" />
+          Easy GHO
+        </a>
+        <!-- MDE Tools -->
+        <p class="sidebar-header">MDE Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="crtool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/change_owner.svg" />
+          Case Reassignment Tool
+        </a>
+
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deployment.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/fallback_60.png" />
+          Deployment Monitoring
+        </a>
+        <!-- Added by Sandeep for WI-02 -->
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="casehandover.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/action/announcement_60.png" />
+          Case handover
+        </a>
+        <p class="sidebar-header">Special Access Tools</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="UpdatedQaTool.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/survey_60.png" />
+          ProQA Tool 
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="OrgErrorChecker.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/call.svg" />
+          Voice Call Checker
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="misses.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Misses
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="deploymentPC.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/error.svg" />
+          Deployment PC
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="orgIdValidator.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/priority.svg" />
+          Org Id Validator
+        </a>
+        <!-- <a
+            class="list-group-item list-group-item-action list-group-item-light p-1"
+            href="ccamTool.html"
+          >
+            <img src="./css/slds/assets/icons/action/info_60.png" />
+            ProCAM Tool
+          </a> -->
+        <!-- User Settings -->
+        <p class="sidebar-header">Personalization</p>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1" href="settings.html">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/settings.svg" />
+          User Settings
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-1"
+          href="https://docs.google.com/spreadsheets/d/1UCbLPbwimyvmRK_CTrFhAQacapppegfiQwp00qf6Itw/edit#gid=0"
+          target="”_blank”">
+          <img class="sidebar-icon" src="./css/slds/assets/icons/utility/reply.svg" />
+          Feedback form
+        </a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Top navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bs-gray-900 border-bottom ">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item active shift-container">
+                <span id="logged-in-status-dot" class="dot"></span>
+                <p id="current-shift" class="nav-link sub-header"></p>
+              </li>
+              <li class="nav-item active shift-container">
+                <a class="nav-link sub-header" href="popup.html">Home</a>
+              </li>
+              <li class="nav-item shift-container">
+                <a class="nav-link" href="settings.html">
+                  <p id="user-name"></p>
+                </a>
+              </li>
+              <li class="nav-item shift-container">
+                <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                  <img class="profile-pic" alt="Person name" id="profile-pic" title="Person name" />
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content-->
+      <div class="container-fluid">
+        <h1 class="mt-4 mx-2">Case Reassignment Tool</h1>
+        <p class="mt-4 mx-2 sub-header">
+          Welcome to the Case Reassignment Tool for ProM
+        </p>
+        <div class="slds-form-element slds-m-top_small mt-4 mx-2">
+          <label class="slds-form-element__label" for="alert-select">Select GEO(Choose All GEOs if any TE isn't
+            listed)</label>
+          <div class="slds-form-element__control">
+            <div class="slds-select_container">
+              <select class="slds-select" id="geo-select">
+                <option value="Select">Select</option>
+                <option value="All">All GEOs</option>
+                <option value="APAC">APAC</option>
+                <option value="EMEA">EMEA</option>
+                <option value="AMER">AMER</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!--  wrapper for seleting TE box -->
+        <div class="slds-form-element m-2" role="group" aria-labelledby="picklist-group-label">
+          <span id="picklist-group-label" class="slds-form-element__label slds-form-element__legend"></span>
+          <!-- Start : TextArea component added by sandeep for WI-1 -->
+
+          <div class="slds-form-element__control autoSelectMTEWrapper">
+            <div class="slds-form-element__control">
+              <div class="slds-dueling-list">
+                <textarea id="AutoSelectInput" name="pastedTE" rows="18" cols="63"></textarea>
+              </div>
+              <div class="slds-dueling-list AutoFetchBtnWrapper">
+                <button class="btn btn-success stylingButtons" id="AutoSelectMTE">
+                  Select MTE's
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- END : TextArea component added by sandeep for WI-1 -->
+          <!--  main component to show availible TE's and Selected TE's -->
+          <div class="slds-form-element__control">
+            <div class="slds-dueling-list">
+              <div class="slds-assistive-text" id="drag-live-region" aria-live="assertive"></div>
+              <div class="slds-assistive-text" id="option-drag-label">
+                Press space bar when on an item, to move it within the list.
+                Cmd/Ctrl plus left and right arrow keys, to move items between
+                lists.
+              </div>
+              <!-- grid parent -->
+              <div id="data-entry-section" class="slds-grid slds-wrap">
+                <!-- Availible TE -->
+                <div class="slds-col slds-dueling-list__column">
+                  <span class="slds-form-element__label" id="label-31">Available Engineers</span>
+                  <div class="slds-dueling-list__options" id="listoptionsAvailableTE">
+                    <ul aria-describedby="option-drag-label" aria-labelledby="label-31" aria-multiselectable="true"
+                      class="slds-listbox slds-listbox_vertical" role="listbox" id="availableTE"></ul>
+                  </div>
+                </div>
+                <!-- black btn to move selected TE from left to right -->
+                <div id="middleDiv" class="slds-col slds-dueling-list__column ">
+
+                  <button class="btn btn-primary mt-3 move-right-btn" title="Move Selection to Selected Engineers"
+                    id="moveToSelectedBtn">
+                    <img src="./css/slds/assets/icons/utility/right.svg" alt="Image" width="20" height="20" />
+                  </button>
+                  <button class="btn btn-danger mt-3" title="Move Selection to Available Engineers"
+                    id="moveToAvailableBtn">
+                    <img src="./css/slds/assets/icons/utility/left.svg" alt="Image" width="20" height="20" />
+                  </button>
+                </div>
+                <!-- Selected TE -->
+                <div class="slds-col slds-dueling-list__column">
+                  <span class="slds-form-element__label" id="countSelectedTE">Selected Engineers</span>
+                  <div class="slds-dueling-list__options" id="listoptionsSelectedTE">
+
+
+                    <ul aria-describedby="option-drag-label" aria-labelledby="label-32" aria-multiselectable="true"
+                      class="slds-listbox slds-listbox_vertical" role="listbox" id="selectedTE"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Action buttons -->
+
+        <button class="btn btn-success stylingButtons" id="assignCases">
+          Assign Cases
+        </button>
+        <button class="btn btn-danger stylingButtons mx-2" id="alertsDuringReassignment">
+          Display Alerts during Reassignment
+        </button>
+        <button class="btn btn-secondary stylingButtons mx-2" id="grabCases">
+          Take Cases
+        </button>
+      </div>
+      <div id="alerts-during-reassignment-table" class="table mt-4 mx-1 px-4"></div>
+      <button class="btn btn-secondary stylingButtons mx-2 my-2" id="copyTable">
+        Copy Alerts/HO-Requests
+      </button>
+    </div>
+  </div>
+  <!-- Loader -->
+  <div id="my-spinner" class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+</body>
+<script src="../lib/jsforce.js"></script>
+<script src="../controllers/crTool.js" type="module"></script>
+
+</html>
