@@ -1,69 +1,109 @@
-# Prom Master 2.0
+# Prom Master
 
-This repository is created to develop and maintain the ProM Master chrome extension for Proactive Monitoring Team.
+## Overview
+**Prom Master** is a Chrome extension developed for the **Proactive Monitoring (ProM) Team** to enhance productivity, automate manual processes, and provide useful tools for **Technical Engineers (TEs)**.
 
-This extension is create to enhance productivity of the TEs and provide them with useful tools and resources to ease the day-to-day activities and automates manual processes as much as possible.
+This extension extracts the **session ID** of the currently logged-in user from the browser's cookie and uses it to invoke **Salesforce REST APIs**. Notably, the tool does **not** handle the authentication process itself.
 
-This tool extracts the session ID of the currently logged-in user from the browser's cookie. It then uses the acquired session ID to invoke REST APIs in the Salesforce platform. In essence, this tool does not handle the authentication process itself.
+---
+## Features & Tools
 
-Below are the features and tools provided by the extension as of the current release -
+### 🚀 **Modularized Approach**
+The extension follows a **modularized** design with best practices in **web development**. It adopts an **MVC pattern** with the following structure:
 
-## Modularised Approach
+📂 **Views** - Contains all HTML files.
+📂 **Controllers** - JavaScript files directly bound to respective HTML files.
+📂 **Model** - JavaScript classes for object-oriented design.
+📂 **Service** - Methods to interact with Chrome APIs & Salesforce APIs.
+📂 **Utils** - Utility methods used across the project.
 
-The extension is re-written to adopt a much more modularised approach following standard web development best practices. We have tried to follow the MVC pattern as far as possible. Below are is the project structure explained -
+### 🛠 **Local Profile Enablement**
+- Users can **configure** and **customize** the extension based on their requirements.
+- The **Local Profile** is stored in **Local Storage** and retained for the lifetime of the extension.
+- Users can edit their **Settings** at any time.
 
-- Views
-  - Contains all the html files
-- Controllers
-  - Contains all the js files directly bound to the respective html files
-- Model
-  - Contains all Javscript Classes for Object oriented design
-- Service
-  - Contains all service methods to interact with Chrome APIs and Salesforce APIs
-- Utils
-  - Contains utility methods to be used across the code
+### 👥 **Role-Based Access Control**
+- **TE** - Access to all TE-related tools.
+- **MDE** - Special tools for **MDE Duties**.
+- **QA** - Tools for **ProM QA Team**.
+- **Manager** - Specialized tools for **Managerial Data Insights**.
 
-## Enablement of Local Profile
+### 🔐 **Auth Contexts**
+The extension operates with two **Auth Contexts**:
+1. **Local Auth Context** - Based on **user-configured settings**, accessible anywhere in the application.
+2. **Salesforce Auth Context** - Extracts **session tokens** from **Chrome cache** (OrgCS, GUS, MCS) to **authorize API calls** using **JSForce**.
 
-- The extension now supports Local Profile so that users can configure the extension as per their requirement.
-- The Local Profile is saved to the Local Storage and is retained for the Lifetime of the chrome extension.
-- Users have the ability to edit their Settings as required
-- New Roles Features -
-  - TE - Access all tools for TE work
-  - MDE - Access Special Tools for MDE Duties
-  - QA - Access special tools for ProM QA Team
-  - Manager - Few tools to help Managers get required datat
+### 🔔 **Chrome Notifications**
+- Utilizes **Google Chrome notifications** for alerts.
+- Only **configured** alerts are sent.
+- No **popup interruptions** that block user actions.
+- Uses **NotificationService** for streamlined notifications.
 
-## Auth Contexts
+---
+## 🔧 **Plugin Tools & Features**
 
-The extension function by exposing two Auth Contexts -
+### 📊 **Home Dashboard**
+- Provides a **consolidated metrics dashboard**.
+- Key metrics include:
+  - **Alerts received** during shift.
+  - **Customer Comments, Public Comments, Internal Comments**.
+  - **Cases Closed & Internal Cases in Queue**.
 
-- Local Auth Context
-  - This is built on the basis of the Settings configured by the User and can be used to check the Local Settings of the User anywhere in the application.
-- Salesforce Auth Context
-  - This auth context is built on the basis of Sessions present in the Chrome cache. The session tokens for OrgCS, GUS & MCS are fetched if available and used for authorization of all calls to the Salesforce APIs via JSForce
+### 🔄 **Case Reassignment Tool**
+- Supports **geo-based engineer segregation**.
+- Additional new features for better case management.
 
-## New Chrome Notifications
+### 📝 **Case Comments Tool**
+- Tracks **alerts** on cases within a specific timeframe.
+- Features:
+  - **Mark as Done** ✅.
+  - **Already Updated** option.
 
-The extension now utilised the Google Chrome notifications to send only the configured alerts to the Users, that too not via irritating popups that block User actions. We use the NotificationService for this functionality.
+### 💬 **Customer Comment Tool**
+- Monitors **customer comments** on cases.
+- Highlights comments if **SLA is not met**.
 
-## Plugin Tools & Features
+### ✅ **Closure Comments Tool**
+- Identifies cases **eligible for closure**.
+- Generates **automated closure templates**.
+- **Redistributes closure cases** for equal opportunities within the team.
 
-The extension offers below tools & features -
+### 📌 **Easy GHO (Global Handover)**
+- Generates **GHO template messages**.
+- Facilitates **efficient case handover**.
 
-- Home
-  - Provides a consolidated metrics dashboard to get an overview to important data like no.of alerts received during shift, customer comments, public comments, internal comments, cases closed & internal cases in queue
-- Case Reassingment Tool
-  - Updated version supporting GEO-vise segregation of engineers and more new features!
-- Case Comments Tool
-  - Tools to check alerts on your cases in a selected time slot. It now provide engineers with option to "Mark as Done" & "Already Updated"
-- Customer Comment Tool
-  - Check customer comments on cases. New features like highlighting of comments if SLA is not Met etc
-- Closure Comments Tool
-  - Get cases eligible for Closures, generate automated closure templates & re-distribute Closure Cases for equal closure opportunities for the team
-- Easy GHO -
-  - Generate GHO template messages and post on your cases for efficient Handover
-- Alert Checker -
-  - Check alerts received on Cases for Specific Accounts and Specific Orgs in a given timeframe.
-- QA Tools
-  - Used for Automation of ProM QA Process (Only available to QA Team Members)
+### 🚨 **Alert Checker**
+- Checks **alerts on cases** for specific accounts and orgs within a given timeframe.
+
+### 🛡 **QA Tools**
+- Automates **ProM QA processes**.
+- **Exclusive access** for **QA Team Members**.
+
+---
+## 📜 **Installation & Usage**
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/srijitpatra99/Prom-Master.git
+   ```
+2. Load the extension in Chrome:
+   - Open `chrome://extensions/`.
+   - Enable **Developer Mode**.
+   - Click **Load Unpacked**.
+   - Select the **extension folder**.
+3. Configure your **Local Profile** and start using the tools!
+
+---
+## 🤝 **Contributing**
+Contributions are welcome! To contribute:
+- Fork the repository.
+- Create a feature branch.
+- Submit a **Pull Request (PR)**.
+
+---
+## 📜 **License**
+This project is licensed under the **MIT License**.
+
+---
+## 🛠 **Developed & Maintained By**
+💡 **Proactive Monitoring Team**
+
