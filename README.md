@@ -3,7 +3,7 @@
 ## Overview
 **Prom Master** is a Chrome extension developed for the **Proactive Monitoring (ProM) Team** to enhance productivity, automate manual processes, and provide useful tools for **Technical Engineers (TEs)**.
 
-This extension extracts the **session ID** of the currently logged-in user from the browser's cookie and uses it to invoke **Salesforce REST APIs**. Notably, the tool does **not** handle the authentication process itself.
+This extension extracts the **session ID** of the currently logged-in user from the browser's cookie and uses it to invoke **Salesforce REST APIs**..
 
 ---
 ## 📸 Screenshots
